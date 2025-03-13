@@ -13,7 +13,7 @@ export default function EditorContent() {
 
   useEffect(() => {
     if (editor && data) {
-      loadSnapshot(editor.store, data as any);
+      loadSnapshot(editor.store, data);
     }
   }, [editor, data]);
 
