@@ -4,6 +4,7 @@ import { getSnapshot, loadSnapshot, useEditor } from "@tldraw/tldraw";
 import "@tldraw/tldraw/tldraw.css";
 import { api } from "../_utils/api";
 import { useEffect } from "react";
+import ModifyButton from "./ModifyButton";
 
 export default function EditorContent() {
   const editor = useEditor();
@@ -12,7 +13,7 @@ export default function EditorContent() {
 
   useEffect(() => {
     if (editor && data) {
-      loadSnapshot(editor.store, data);
+      loadSnapshot(editor.store, data as any);
     }
   }, [editor, data]);
 
@@ -43,4 +44,6 @@ export default function EditorContent() {
       </div>
     );
   }
+
+  return <ModifyButton />;
 }
