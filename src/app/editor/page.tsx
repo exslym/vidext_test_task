@@ -1,8 +1,8 @@
 "use client";
 
 import { Tldraw } from "@tldraw/tldraw";
-import EditorContent from "../_components/EditorContent";
-import BackButton from "@/components/BackButton";
+import EditorContent from "@/app/_components/EditorContent";
+import BackButton from "@/app/_components/BackButton";
 import "@tldraw/tldraw/tldraw.css";
 
 export default function EditorPage() {
