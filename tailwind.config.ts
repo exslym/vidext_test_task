@@ -12,9 +12,13 @@ const config: Config = {
       colors: {
         gray: {
           primary: "#edf0f2",
+          secondary: "#303030",
         },
         blue: {
           primary: "#3182ed",
+        },
+        light: {
+          primary: "#f9fafb",
         },
 
         background: "hsl(var(--background))",
