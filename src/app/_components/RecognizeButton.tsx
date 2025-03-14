@@ -3,6 +3,7 @@
 import { useEditor } from "@tldraw/tldraw";
 import { Button } from "@/components/ui/button";
 import { api } from "../_utils/api";
+import { Loader2 } from "lucide-react";
 
 export default function RecognizeButton() {
   const editor = useEditor();
@@ -86,10 +87,14 @@ export default function RecognizeButton() {
     <>
       <Button
         onClick={recognizeShape}
+        disabled={mutation.isLoading}
         className="absolute top-2 left-[50%] translate-x-[-50%] z-10 bg-green-600 text-white hover:bg-green-500 transition shadow-md"
         size={"lg"}
       >
-        Recognize Shape (AI)
+        {mutation.isLoading && (
+          <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+        )}
+        {mutation.isLoading ? "Recognizing..." : "Recognize Shape (AI)"}
       </Button>
     </>
   );

@@ -6,6 +6,7 @@ import { api } from "../_utils/api";
 import { useEffect } from "react";
 import ModifyButton from "./ModifyButton";
 import RecognizeButton from "./RecognizeButton";
+import { Loader2 } from "lucide-react";
 
 export default function EditorContent() {
   const editor = useEditor();
@@ -32,7 +33,8 @@ export default function EditorContent() {
   if (isLoading || !editor) {
     return (
       <div className="absolute inset-0 flex justify-center items-center">
-        Loading...
+        <Loader2 className="mr-2 h-8 w-8 animate-spin" />
+        <p className="text-lg">Loading...</p>
       </div>
     );
   }
