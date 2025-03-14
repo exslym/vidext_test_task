@@ -6,12 +6,12 @@ import { ArrowLeft } from "lucide-react";
 
 export default function BackButton() {
   return (
-    <Link href="/">
+    <Link href="/" className="z-10 max-w-fit">
       <Button
-        className="absolute top-2 left-2 z-10 px-5 py-2 bg-[#3182ed] text-white shadow-sm hover:bg-blue-400 transition"
+        className=" px-5 py-2 bg-blue-primary text-white shadow-sm hover:bg-blue-400 transition"
         size="lg"
       >
-        <ArrowLeft />
+        <ArrowLeft size={18} />
         Back to Home
       </Button>
     </Link>

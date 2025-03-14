@@ -31,6 +31,7 @@
     "clsx": "^2.1.1",
     "eslint": "^9",
     "eslint-config-next": "15.2.2",
+    "next-themes": "^0.4.6",
     "openai": "^4.87.3",
     "postcss": "^8",
     "shadcn-ui": "^0.9.5",

@@ -1,23 +1,24 @@
 "use client";
 
 import { Tldraw } from "@tldraw/tldraw";
-import "@tldraw/tldraw/tldraw.css";
 import EditorContent from "../_components/EditorContent";
 import BackButton from "@/components/BackButton";
+import "@tldraw/tldraw/tldraw.css";
 
 export default function EditorPage() {
   return (
-    <>
-      <header className="absolute flex w-full h-[56px] border-foreground border-b bg-gray">
+    <div className="w-screen h-screen flex flex-col">
+      <header className="p-2 flex w-full bg-gray-primary [box-shadow:inset_0_-1px_gray]">
         <BackButton />
       </header>
-      <main className="w-screen h-screen flex flex-col">
-        <section className="flex-1 relative pt-14">
+
+      <main className="flex w-full h-full">
+        <section className="flex-1 relative">
           <Tldraw>
             <EditorContent />
           </Tldraw>
         </section>
       </main>
-    </>
+    </div>
   );
 }
