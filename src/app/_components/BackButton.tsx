@@ -8,7 +8,7 @@ export default function BackButton() {
   return (
     <Link href="/" className="z-10 max-w-fit">
       <Button
-        className="px-5 py-2 bg-gray-secondary hover:bg-gray-600 rounded-lg shadow-sm"
+        className="px-5 py-2 bg-gray-secondary hover:bg-gray-600 rounded-lg shadow-sm dark:text-white dark:bg-gray-700 dark:hover:bg-gray-500"
         size="lg"
       >
         <ArrowLeft size={18} />

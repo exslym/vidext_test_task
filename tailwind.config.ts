@@ -20,9 +20,14 @@ const config: Config = {
         light: {
           primary: "#f9fafb",
         },
+        dark: {
+          primary: "#1a1a1c",
+          secondary: "#101011",
+        },
 
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",

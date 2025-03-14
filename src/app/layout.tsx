@@ -4,6 +4,7 @@ import TrpcProvider from "./_utils/TrpcProvider";
 import type { Metadata } from "next";
 import "./globals.css";
 import { Inter } from "next/font/google";
+import { ThemeProvider } from "@/components/ThemesProvider";
 
 export const inter = Inter({
   subsets: ["latin"],
@@ -22,9 +23,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <TrpcProvider>{children}</TrpcProvider>
+        <ThemeProvider>
+          <TrpcProvider>{children}</TrpcProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

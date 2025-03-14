@@ -13,9 +13,8 @@ import {
 } from "lucide-react";
 import Header from "@/app/_components/Header";
 import OpenButton from "@/app/_components/OpenButton";
-import Image from "next/image";
-import logo from "@/assets/vidext-logo.png";
 import FeatureCard from "@/app/_components/FeatureCard";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const HomePage: React.FC = () => {
   return (
@@ -23,21 +22,20 @@ const HomePage: React.FC = () => {
       <Header>
         <div className="container mx-auto flex items-center justify-between">
           <Link href="/">
-            <Image
-              src={logo}
-              alt="logo"
-              width={100}
-              height={40}
-              className="object-cover grayscale"
-            />
+            <p className="text-3xl font-bold dark:text-gray-200">Tldraw</p>
           </Link>
-          <OpenButton />
+          <div className="flex items-center gap-2">
+            <ThemeToggle />
+            <OpenButton />
+          </div>
         </div>
       </Header>
-      <main className="w-full h-full flex items-start justify-center bg-white px-4">
+      <main className="w-full h-full flex items-start justify-center bg-white px-4 dark:text-white dark:bg-dark-secondary">
         <section className="container py-14 flex flex-col items-center justify-start w-full text-center space-y-10">
-          <h1 className="text-5xl font-bold">Welcome to Tldraw Editor!</h1>
-          <p className="text-xl text-gray-800">
+          <h1 className="text-5xl font-bold dark:text-gray-200">
+            Welcome to Tldraw Editor!
+          </h1>
+          <p className="text-xl text-gray-800 dark:text-gray-400">
             A simple and powerful drawing editor lets you create and save your
             sketches.
             <br />
@@ -75,9 +73,10 @@ const HomePage: React.FC = () => {
               description="Select a hand-drawn shape and press the AI button to convert it into a precise geometric form."
             />
           </div>
+
           <Link href="/editor">
             <Button
-              className="px-5 py-2 bg-gray-secondary hover:bg-gray-600 rounded-lg shadow-lg"
+              className="px-5 py-2 bg-gray-secondary hover:bg-gray-600 rounded-lg shadow-lg dark:text-white dark:bg-gray-700 dark:hover:bg-gray-500"
               size="lg"
             >
               Open Editor
