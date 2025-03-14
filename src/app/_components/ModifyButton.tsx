@@ -2,29 +2,7 @@
 
 import { TLShapeId, TLGeoShape, useEditor } from "@tldraw/tldraw";
 import { Button } from "@/components/ui/button";
-
-const shapeSequence = [
-  "cloud",
-  "rectangle",
-  "ellipse",
-  "triangle",
-  "diamond",
-  "pentagon",
-  "hexagon",
-  "octagon",
-  "star",
-  "rhombus",
-  "rhombus-2",
-  "oval",
-  "trapezoid",
-  "arrow-right",
-  "arrow-left",
-  "arrow-up",
-  "arrow-down",
-  "x-box",
-  "check-box",
-  "heart",
-];
+import { shapeSequence } from "@/constants/shapes";
 
 export default function ModifyButton() {
   const editor = useEditor();

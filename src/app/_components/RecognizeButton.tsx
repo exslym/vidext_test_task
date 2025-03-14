@@ -1,0 +1,96 @@
+"use client";
+
+import { useEditor } from "@tldraw/tldraw";
+import { Button } from "@/components/ui/button";
+import { api } from "../_utils/api";
+
+export default function RecognizeButton() {
+  const editor = useEditor();
+  const mutation = api.recognizeShape.useMutation();
+
+  const recognizeShape = async () => {
+    if (!editor) return;
+
+    const selectedShapes = editor.getSelectedShapes();
+
+    if (selectedShapes.length === 0) {
+      alert("No shape selected.");
+      return;
+    }
+
+    const svgString = await editor.getSvgString(
+      selectedShapes.map((s) => s.id)
+    );
+    if (!svgString?.svg) {
+      alert("Could not generate SVG.");
+      return;
+    }
+
+    const svgBase64 = `data:image/svg+xml;base64, ${btoa(svgString.svg)}`;
+
+    const img = new Image();
+    img.src = svgBase64;
+
+    img.onload = () => {
+      const canvas = document.createElement("canvas");
+      canvas.width = img.width;
+      canvas.height = img.height;
+
+      const ctx = canvas.getContext("2d");
+      ctx?.drawImage(img, 0, 0);
+
+      const pngBase64 = canvas.toDataURL("image/png");
+
+      mutation
+        .mutateAsync({ image: pngBase64 })
+        .then((response) => {
+          const recognizedShape = response.shape;
+
+          if (!recognizedShape) {
+            alert("Could not recognize shape.");
+            return;
+          }
+
+          const bounds = editor.getShapePageBounds(selectedShapes[0].id);
+          if (!bounds) {
+            alert("Could not get shape bounds.");
+            return;
+          }
+
+          editor.batch(() => {
+            editor.deleteShapes(selectedShapes.map((shape) => shape.id));
+
+            editor.createShape({
+              type: "geo",
+              props: {
+                geo: recognizedShape,
+                w: bounds.width,
+                h: bounds.height,
+              },
+              x: bounds.x,
+              y: bounds.y,
+            });
+          });
+        })
+        .catch((error) => {
+          alert(`Error recognizing shape.\n${error}`);
+        });
+    };
+
+    img.onerror = (error) => {
+      alert(`Failed to load SVG as image.\n${error}`);
+    };
+  };
+
+  return (
+    <>
+      <Button
+        onClick={recognizeShape}
+        className="absolute top-2 left-[50%] translate-x-[-50%] z-10 bg-green-600 text-white hover:bg-green-500 transition shadow-md"
+        size={"lg"}
+      >
+        Recognize Shape (AI)
+      </Button>
+    </>
+  );
+}

@@ -5,6 +5,7 @@ import "@tldraw/tldraw/tldraw.css";
 import { api } from "../_utils/api";
 import { useEffect } from "react";
 import ModifyButton from "./ModifyButton";
+import RecognizeButton from "./RecognizeButton";
 
 export default function EditorContent() {
   const editor = useEditor();
@@ -45,5 +46,10 @@ export default function EditorContent() {
     );
   }
 
-  return <ModifyButton />;
+  return (
+    <>
+      <ModifyButton />
+      <RecognizeButton />
+    </>
+  );
 }
