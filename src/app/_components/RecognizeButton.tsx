@@ -88,7 +88,7 @@ export default function RecognizeButton() {
       <Button
         onClick={recognizeShape}
         disabled={mutation.isLoading}
-        className="absolute top-2 left-[50%] translate-x-[-50%] z-10 bg-green-600 text-white hover:bg-green-500 transition shadow-md"
+        className="absolute top-2 left-[50%] translate-x-[-50%] z-10 px-5 py-2 bg-green-600 text-white hover:bg-green-500 transition shadow-md max-[640px]:right-2 max-[640px]:left-auto max-[640px]:translate-x-0 rounded-lg"
         size={"lg"}
       >
         {mutation.isLoading && (

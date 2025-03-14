@@ -21,7 +21,7 @@ const HomePage: React.FC = () => {
         </ul>
         <Link href="/editor">
           <Button
-            className="px-5 py-2 bg-[#3182ed] text-white rounded shadow hover:bg-blue-400 transition"
+            className="px-5 py-2 bg-[#3182ed] text-white rounded-lg shadow hover:bg-blue-400 transition"
             variant="default"
           >
             Open Editor

@@ -39,7 +39,7 @@ export default function ModifyButton() {
   return (
     <Button
       onClick={modifyShape}
-      className="absolute bottom-16 right-[50%] translate-x-[50%] z-10 px-5 py-2 bg-[#3182ed] text-white shadow-sm hover:bg-blue-400 transition max-[840px]:bottom-[102px] max-[840px]:right-[50%] max-[840px]:translate-x-[-76px] max-[640px]:bottom-auto max-[640px]:top-2 max-[640px]:right-2 max-[640px]:translate-x-0 rounded-lg"
+      className="absolute bottom-16 right-[50%] translate-x-[50%] z-10 px-5 py-2 bg-[#3182ed] text-white shadow-sm hover:bg-blue-400 transition max-[840px]:bottom-[102px] max-[840px]:right-[50%] max-[840px]:translate-x-[-76px] max-[640px]:bottom-auto max-[640px]:top-14 max-[640px]:right-2 max-[640px]:translate-x-0 rounded-lg"
       variant="default"
       size={"lg"}
     >
