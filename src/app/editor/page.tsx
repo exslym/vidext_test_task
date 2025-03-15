@@ -9,6 +9,8 @@ import ThemeToggle from '@/components/ThemeToggle';
 import { Tldraw } from '@tldraw/tldraw';
 import '@tldraw/tldraw/tldraw.css';
 import { useTheme } from 'next-themes';
+import ModifyButton from '@/app/_components/ModifyButton';
+import RecognizeButton from '@/app/_components/RecognizeButton';
 
 export default function EditorPage() {
 	const { resolvedTheme, systemTheme } = useTheme();
@@ -32,21 +34,26 @@ export default function EditorPage() {
 	}, [resolvedTheme, systemTheme]);
 
 	return (
-		<div className='bg-light flex h-screen w-full flex-col dark:bg-dark-secondary'>
-			<Header>
-				<div className='mx-auto flex w-full items-center justify-between'>
-					<BackButton />
-					<ThemeToggle />
-				</div>
-			</Header>
+		<div className='bg-light relative flex h-screen w-full dark:bg-dark-secondary'>
+			<Tldraw className='pt-14'>
+				<Header classes='absolute top-0'>
+					<nav
+						aria-label='Editor navigation'
+						className='mx-auto flex w-full items-center justify-between'
+					>
+						<BackButton />
 
-			<main className='flex h-full w-full'>
-				<section className='relative flex-1'>
-					<Tldraw>
-						<EditorContent />
-					</Tldraw>
-				</section>
-			</main>
+						<div className='absolute right-2 top-16 flex flex-col-reverse gap-2 sm:right-1/2 sm:top-2 sm:translate-x-1/2 sm:flex-row'>
+							<ModifyButton />
+							<RecognizeButton />
+						</div>
+
+						<ThemeToggle />
+					</nav>
+				</Header>
+
+				<EditorContent />
+			</Tldraw>
 		</div>
 	);
 }

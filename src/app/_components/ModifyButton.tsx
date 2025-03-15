@@ -39,7 +39,7 @@ export default function ModifyButton() {
 	return (
 		<Button
 			onClick={modifyShape}
-			className='absolute bottom-auto right-2 top-14 z-10 translate-x-0 rounded-lg bg-blue-primary px-5 py-2 text-white shadow-sm transition hover:bg-blue-400 sm:bottom-102px sm:right-1/2 sm:top-auto sm:-translate-x-76px md-840:bottom-16 md-840:right-1/2 md-840:translate-x-1/2'
+			className='w-max-fit relative z-10 rounded-lg bg-blue-primary px-4 py-2 text-center text-white shadow-sm transition hover:bg-blue-400'
 			size={'lg'}
 		>
 			Modify Shape

@@ -10,7 +10,10 @@ export default function HomePage() {
 	return (
 		<div className='flex h-screen w-full flex-col'>
 			<Header>
-				<div className='container mx-auto flex items-center justify-between'>
+				<nav
+					aria-label='Main navigation'
+					className='container mx-auto flex items-center justify-between'
+				>
 					<Link href='/'>
 						<p className='text-3xl font-bold dark:text-gray-200'>Tldraw</p>
 					</Link>
@@ -18,7 +21,7 @@ export default function HomePage() {
 						<OpenButton />
 						<ThemeToggle />
 					</div>
-				</div>
+				</nav>
 			</Header>
 			<main className='flex h-full w-full items-start justify-center bg-white px-4 dark:bg-dark-secondary dark:text-white'>
 				<Hero />

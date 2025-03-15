@@ -10,8 +10,6 @@ import { useTheme } from 'next-themes';
 import { api } from '../_utils/api';
 import Error from './Error';
 import Loading from './Loading';
-import ModifyButton from './ModifyButton';
-import RecognizeButton from './RecognizeButton';
 
 export default function EditorContent() {
 	const editor = useEditor();
@@ -73,11 +71,4 @@ export default function EditorContent() {
 
 	if (isLoading || !editor) return <Loading />;
 	if (isError) return <Error />;
-
-	return (
-		<>
-			<ModifyButton />
-			<RecognizeButton />
-		</>
-	);
 }

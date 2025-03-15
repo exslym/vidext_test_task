@@ -26,7 +26,7 @@ export default function RecognizeButton() {
 		<Button
 			onClick={recognizeShape}
 			disabled={mutation.isLoading}
-			className='absolute right-2 top-2 z-10 translate-x-0 rounded-lg bg-green-600 px-5 py-2 text-white shadow-md transition hover:bg-green-500 sm:right-1/2 sm:translate-x-1/2'
+			className='relative z-10 w-44 rounded-lg bg-green-600 px-4 py-2 text-center text-white shadow-sm transition hover:bg-green-500'
 			size={'lg'}
 		>
 			{mutation.isLoading && <Loader2 className='mr-2 h-5 w-5 animate-spin' />}
