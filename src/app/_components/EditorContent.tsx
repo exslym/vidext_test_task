@@ -3,8 +3,9 @@
 import { getSnapshot, loadSnapshot, useEditor } from "@tldraw/tldraw";
 import "@tldraw/tldraw/tldraw.css";
 import { api } from "../_utils/api";
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import { useTheme } from "next-themes";
+import { debounce } from "lodash";
 import ModifyButton from "./ModifyButton";
 import RecognizeButton from "./RecognizeButton";
 import Loading from "./Loading";
@@ -16,6 +17,13 @@ export default function EditorContent() {
   const { resolvedTheme, systemTheme } = useTheme();
   const { data, isLoading, isError } = api.getData.useQuery();
   const mutation = api.setData.useMutation();
+
+  const debouncedSave = useCallback(
+    debounce((snapshot) => {
+      mutation.mutate(snapshot);
+    }, 500),
+    [mutation]
+  );
 
   useEffect(() => {
     if (!editor) return;
@@ -36,8 +44,11 @@ export default function EditorContent() {
   }, [editor, resolvedTheme, systemTheme]);
 
   useEffect(() => {
-    if (editor && data) {
+    if (!editor || !data) return;
+    try {
       loadSnapshot(editor.store, data);
+    } catch (error) {
+      console.error("Error loading snapshot:", error);
     }
   }, [editor, data]);
 
@@ -45,12 +56,19 @@ export default function EditorContent() {
     if (!editor) return;
 
     const unsubscribe = editor.store.listen(() => {
-      const snapshot = getSnapshot(editor.store);
-      mutation.mutate(snapshot);
+      try {
+        const snapshot = getSnapshot(editor.store);
+        debouncedSave(snapshot);
+      } catch (error) {
+        console.error("Error saving snapshot:", error);
+      }
     });
 
-    return () => unsubscribe();
-  }, [editor, mutation]);
+    return () => {
+      unsubscribe();
+      debouncedSave.cancel();
+    };
+  }, [editor, debouncedSave]);
 
   if (isLoading || !editor) return <Loading />;
   if (isError) return <Error />;
