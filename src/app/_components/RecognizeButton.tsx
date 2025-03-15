@@ -17,12 +17,6 @@ export default function RecognizeButton() {
 		} catch (error) {
 			if (error instanceof Error) {
 				alert(error.message);
-			} else if (
-				typeof error === 'object' &&
-				error !== null &&
-				'message' in error
-			) {
-				alert(String(error.message));
 			} else {
 				alert('An unknown error occurred.');
 			}

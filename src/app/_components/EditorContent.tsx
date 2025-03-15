@@ -2,18 +2,27 @@
 
 import { debounce } from 'lodash';
 import { useEffect, useMemo } from 'react';
-import { getSnapshot, loadSnapshot, useEditor } from '@tldraw/tldraw';
+import {
+	getSnapshot,
+	loadSnapshot,
+	useEditor,
+	TLEditorSnapshot,
+} from '@tldraw/tldraw';
 import '@tldraw/tldraw/tldraw.css';
 
 import { api } from '../_utils/api';
 
-export default function EditorContent({ data }: { data: any }) {
+interface EditorContentProps {
+	data: TLEditorSnapshot | null;
+}
+
+export default function EditorContent({ data }: EditorContentProps) {
 	const editor = useEditor();
 	const mutation = api.setData.useMutation();
 
 	const debouncedSave = useMemo(
 		() =>
-			debounce(snapshot => {
+			debounce((snapshot: TLEditorSnapshot) => {
 				mutation.mutate(snapshot);
 			}, 500),
 		[mutation],

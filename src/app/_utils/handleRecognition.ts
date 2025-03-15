@@ -1,11 +1,17 @@
 import { useEditor } from '@tldraw/tldraw';
-
+import { UseMutationResult } from '@tanstack/react-query';
 import { renderSvgToCanvas } from './renderSvgToCanvas';
 import { svgToBase64 } from './svgToBase64';
 
+type RecognizeShapeMutation = UseMutationResult<
+	{ shape?: string },
+	unknown,
+	{ image: string }
+>;
+
 export const handleRecognition = async (
 	editor: ReturnType<typeof useEditor>,
-	recognizeShapeMutation: any,
+	recognizeShapeMutation: RecognizeShapeMutation,
 ) => {
 	if (!editor) {
 		throw new Error('Editor is not available.');
@@ -26,22 +32,13 @@ export const handleRecognition = async (
 
 	let response;
 	try {
-		response = await recognizeShapeMutation.mutateAsync({
-			image: pngBase64,
-		});
+		response = await recognizeShapeMutation.mutateAsync({ image: pngBase64 });
 	} catch (error) {
 		alert(`Error during AI recognition:\n${error}`);
 		throw new Error('AI recognition failed.');
 	}
 
-	if (!response || !response.shape) {
-		throw new Error('Could not recognize shape.');
-	}
-	response = await recognizeShapeMutation.mutateAsync({
-		image: pngBase64,
-	});
-	const recognizedShape = response.shape;
-
+	const recognizedShape = response?.shape ?? null;
 	if (!recognizedShape) {
 		throw new Error('Could not recognize shape.');
 	}
