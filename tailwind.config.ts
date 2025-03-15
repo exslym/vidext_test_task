@@ -9,6 +9,19 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        "md-840": { min: "840px" },
+      },
+      spacing: {
+        "102px": "102px",
+      },
+      translate: {
+        "76px": "76px",
+      },
+      boxShadow: {
+        "inset-bottom-lightgray": "inset 0 -1px lightgray",
+        "inset-bottom-black": "inset 0 -1px black",
+      },
       colors: {
         gray: {
           primary: "#edf0f2",
