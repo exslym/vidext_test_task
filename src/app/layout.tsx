@@ -5,7 +5,7 @@ import { Inter } from 'next/font/google';
 import TrpcProvider from './_utils/TrpcProvider';
 import './globals.css';
 
-export const inter = Inter({
+const inter = Inter({
 	subsets: ['latin'],
 	display: 'swap',
 	variable: '--font-inter',
