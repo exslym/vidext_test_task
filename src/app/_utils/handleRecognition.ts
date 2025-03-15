@@ -7,27 +7,49 @@ export const handleRecognition = async (
 	editor: ReturnType<typeof useEditor>,
 	recognizeShapeMutation: any,
 ) => {
-	if (!editor) throw new Error('Editor is not available.');
+	if (!editor) {
+		throw new Error('Editor is not available.');
+	}
 
 	const selectedShapes = editor.getSelectedShapes();
-	if (selectedShapes.length === 0)
+	if (selectedShapes.length === 0) {
 		throw new Error('No shape selected to recognize.');
+	}
 
 	const svgString = await editor.getSvgString(selectedShapes.map(s => s.id));
-	if (!svgString?.svg) throw new Error('Could not generate SVG.');
+	if (!svgString?.svg) {
+		throw new Error('Could not generate SVG.');
+	}
 
 	const svgBase64 = svgToBase64(svgString.svg);
 	const pngBase64 = await renderSvgToCanvas(svgBase64);
 
-	const response = await recognizeShapeMutation.mutateAsync({
+	let response;
+	try {
+		response = await recognizeShapeMutation.mutateAsync({
+			image: pngBase64,
+		});
+	} catch (error) {
+		alert(`Error during AI recognition:\n${error}`);
+		throw new Error('AI recognition failed.');
+	}
+
+	if (!response || !response.shape) {
+		throw new Error('Could not recognize shape.');
+	}
+	response = await recognizeShapeMutation.mutateAsync({
 		image: pngBase64,
 	});
 	const recognizedShape = response.shape;
 
-	if (!recognizedShape) throw new Error('Could not recognize shape.');
+	if (!recognizedShape) {
+		throw new Error('Could not recognize shape.');
+	}
 
 	const bounds = editor.getShapePageBounds(selectedShapes[0].id);
-	if (!bounds) throw new Error('Could not get shape bounds.');
+	if (!bounds) {
+		throw new Error('Could not get shape bounds.');
+	}
 
 	editor.batch(() => {
 		editor.deleteShapes(selectedShapes.map(shape => shape.id));

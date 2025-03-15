@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect } from 'react';
 import BackButton from '@/app/_components/BackButton';
 import EditorContent from '@/app/_components/EditorContent';
 import Header from '@/app/_components/Header';
@@ -7,33 +8,24 @@ import ModifyButton from '@/app/_components/ModifyButton';
 import RecognizeButton from '@/app/_components/RecognizeButton';
 import ThemeToggle from '@/components/ThemeToggle';
 import { useTheme } from 'next-themes';
-
-import { useEffect } from 'react';
+import { applyTheme } from '@/app/_utils/applyTheme';
+import { api } from '@/app/_utils/api';
+import Loading from '@/app/_components/Loading';
+import Error from '@/app/_components/Error';
 
 import { Tldraw } from '@tldraw/tldraw';
 import '@tldraw/tldraw/tldraw.css';
 
 export default function EditorPage() {
+	const { data, isLoading, isError, error } = api.getData.useQuery();
 	const { resolvedTheme, systemTheme } = useTheme();
 
 	useEffect(() => {
-		const themeToApply =
-			resolvedTheme === 'system' ? systemTheme : resolvedTheme;
-
-		setTimeout(() => {
-			if (document.querySelector('.tl-container')) {
-				const tldrawContainer = document.querySelector('.tl-container');
-
-				if (themeToApply === 'dark') {
-					tldrawContainer?.classList.add('tl-theme__dark');
-					tldrawContainer?.classList.remove('tl-theme__light');
-				} else {
-					tldrawContainer?.classList.add('tl-theme__light');
-					tldrawContainer?.classList.remove('tl-theme__dark');
-				}
-			}
-		}, 50);
+		applyTheme(resolvedTheme, systemTheme);
 	}, [resolvedTheme, systemTheme]);
+
+	if (isLoading) return <Loading />;
+	if (isError) return <Error message={error?.message} />;
 
 	return (
 		<div className='bg-light relative flex h-screen w-full dark:bg-dark-secondary'>
@@ -54,7 +46,7 @@ export default function EditorPage() {
 					</nav>
 				</Header>
 
-				<EditorContent />
+				<EditorContent data={data} />
 			</Tldraw>
 		</div>
 	);

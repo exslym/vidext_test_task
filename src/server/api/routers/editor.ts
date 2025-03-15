@@ -8,10 +8,12 @@ let editorData = {};
 
 export const editorRouter = router({
 	getData: publicProcedure.query(() => editorData),
-	// getData: publicProcedure.query(() => {
-	//   throw new Error("Forced API Error");
-	// }),
-
+	/*   
+    // Force server error: 
+    getData: publicProcedure.query(() => {
+      throw new Error('Forced API Error');
+    }),
+  */
 	setData: publicProcedure.input(z.any()).mutation(({ input }) => {
 		editorData = input;
 		return editorData;
@@ -25,7 +27,7 @@ export const editorRouter = router({
         Respond ONLY with the exact shape name from the provided shapes.
         `;
 
-			// Remove data URL prefix
+			// Remove data URL prefix:
 			const base64Image = input.image.replace(/^data:image\/\w+;base64,/, '');
 
 			const response = await fetch(
