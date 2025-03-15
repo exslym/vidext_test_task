@@ -1,23 +1,19 @@
-"use client";
+'use client';
 
 export default function FeatureCard({
-  icon,
-  title,
-  description,
+	icon,
+	title,
+	description,
 }: {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
+	icon: React.ReactNode;
+	title: string;
+	description: string;
 }) {
-  return (
-    <div className="flex flex-col items-center p-6 bg-white dark:bg-gray-800 shadow-lg rounded-lg">
-      <div className="p-3 rounded-full bg-gray-primary dark:bg-gray-700">
-        {icon}
-      </div>
-      <h3 className="mt-4 text-xl font-semibold dark:text-gray-200">{title}</h3>
-      <p className="mt-2 text-gray-700 dark:text-gray-400 text-sm text-center">
-        {description}
-      </p>
-    </div>
-  );
+	return (
+		<div className='flex flex-col items-center rounded-lg bg-white p-6 shadow-lg dark:bg-gray-800'>
+			<div className='rounded-full bg-gray-primary p-3 dark:bg-gray-700'>{icon}</div>
+			<h3 className='mt-4 text-xl font-semibold dark:text-gray-200'>{title}</h3>
+			<p className='mt-2 text-center text-sm text-gray-700 dark:text-gray-400'>{description}</p>
+		</div>
+	);
 }
