@@ -1,11 +1,12 @@
 'use client';
 
+import { debounce } from 'lodash';
+import { useTheme } from 'next-themes';
+
 import { useCallback, useEffect } from 'react';
 
 import { getSnapshot, loadSnapshot, useEditor } from '@tldraw/tldraw';
 import '@tldraw/tldraw/tldraw.css';
-import { debounce } from 'lodash';
-import { useTheme } from 'next-themes';
 
 import { api } from '../_utils/api';
 import Error from './Error';
@@ -28,7 +29,8 @@ export default function EditorContent() {
 	useEffect(() => {
 		if (!editor) return;
 
-		const themeToApply = resolvedTheme === 'system' ? systemTheme : resolvedTheme;
+		const themeToApply =
+			resolvedTheme === 'system' ? systemTheme : resolvedTheme;
 		const tldrawContainer = document.querySelector('.tl-container');
 
 		if (tldrawContainer) {

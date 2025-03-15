@@ -1,5 +1,5 @@
 {
-	"printWidth": 100,
+	"printWidth": 80,
 	"tabWidth": 2,
 	"useTabs": true,
 	"semi": true,
@@ -7,12 +7,20 @@
 	"jsxSingleQuote": true,
 	"bracketSpacing": true,
 	"arrowParens": "avoid",
-	"plugins": ["@trivago/prettier-plugin-sort-imports", "prettier-plugin-tailwindcss"],
+	"plugins": [
+		"@trivago/prettier-plugin-sort-imports",
+		"prettier-plugin-tailwindcss"
+	],
 	"importOrder": [
-		"^react",
-		"<THIRD_PARTY_MODULES>",
-		"^@components/(.*)$",
-		"^@utils/(.*)$",
+		"^[react]",
+		"^./hooks",
+		"^~/icons",
+		"^@(?!/)",
+		"^@/entities",
+		"^@/features",
+		"^@/widget",
+		"^@/shared",
+		"^./ui",
 		"^[./]"
 	],
 	"importOrderSeparation": true,

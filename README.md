@@ -2,9 +2,9 @@
 
 # Tldraw Editor
 
-An advanced, yet intuitive, shape editing tool built with modern web technologies. This application offers seamless drawing, shape modification, and AI-powered shape recognition for a smooth and user-friendly experience. 
+An advanced, yet intuitive, shape editing tool built with modern web technologies. This application offers seamless drawing, shape modification, and AI-powered shape recognition for a smooth and user-friendly experience.
 <br/>
-For the AI features is used free model **Qwen2.5 VL 72B Instruct (FREE)**. 
+For the AI features is used free model **Qwen2.5 VL 72B Instruct (FREE)**.
 
 ## ✨ Features
 
@@ -16,13 +16,13 @@ For the AI features is used free model **Qwen2.5 VL 72B Instruct (FREE)**.
 - **User-Friendly Design** – Clean UI with responsive layout and easy navigation.
 - **Responsive & Adaptive UI** – The editor is fully optimized for desktops, tablets, and mobile devices.
 
-
 ---
+
 ## 📸 Screens
 
 ### 🏠 Home Page
 
-![Home Screenshot](https://github.com/exslym/vidext_test_task/blob/main/public/home-page.png "Home Page")
+![Home Screenshot](https://github.com/exslym/vidext_test_task/blob/main/public/home-page.png 'Home Page')
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -30,7 +30,7 @@ For the AI features is used free model **Qwen2.5 VL 72B Instruct (FREE)**.
 
 ### 🖌 Editor Page
 
-![Editor Screenshot](https://github.com/exslym/vidext_test_task/blob/main/public/editor-page.png "Editor in Action")
+![Editor Screenshot](https://github.com/exslym/vidext_test_task/blob/main/public/editor-page.png 'Editor in Action')
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -73,6 +73,7 @@ cd vidext_test_task
 ```
 
 2. Install dependencies:
+
 ```sh
 npm install
 ```
@@ -88,6 +89,7 @@ npm install
 ---
 
 ### 🏃 Running the App Locally
+
 1. Start the development server:
 
 ```sh
@@ -101,6 +103,7 @@ http://localhost:3000
 ```
 
 ### 🏗 How to Use
+
 - **Go to the Editor** – Navigate to the editor page from the homepage.
 - **Draw & Edit Shapes** – Use the interactive canvas to create and modify shapes.
 - **Modify a Shape** – Select a shape and click the Modify Shape button to change its type.

@@ -1,10 +1,16 @@
 'use client';
 
-import { ReactNode } from 'react';
-
 import { cn } from '@/lib/utils';
 
-export default function Header({ children, classes }: { classes?: string; children?: ReactNode }) {
+import { ReactNode } from 'react';
+
+export default function Header({
+	children,
+	classes,
+}: {
+	classes?: string;
+	children?: ReactNode;
+}) {
 	return (
 		<header
 			className={cn(

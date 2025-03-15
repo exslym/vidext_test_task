@@ -1,10 +1,10 @@
 'use client';
 
 import Header from '@/app/_components/Header';
+import Hero from '@/app/_components/Hero';
 import OpenButton from '@/app/_components/OpenButton';
 import ThemeToggle from '@/components/ThemeToggle';
 import Link from 'next/link';
-import Hero from '@/app/_components/Hero';
 
 export default function HomePage() {
 	return (

@@ -1,22 +1,24 @@
 'use client';
 
-import { useEffect } from 'react';
-
 import BackButton from '@/app/_components/BackButton';
 import EditorContent from '@/app/_components/EditorContent';
 import Header from '@/app/_components/Header';
-import ThemeToggle from '@/components/ThemeToggle';
-import { Tldraw } from '@tldraw/tldraw';
-import '@tldraw/tldraw/tldraw.css';
-import { useTheme } from 'next-themes';
 import ModifyButton from '@/app/_components/ModifyButton';
 import RecognizeButton from '@/app/_components/RecognizeButton';
+import ThemeToggle from '@/components/ThemeToggle';
+import { useTheme } from 'next-themes';
+
+import { useEffect } from 'react';
+
+import { Tldraw } from '@tldraw/tldraw';
+import '@tldraw/tldraw/tldraw.css';
 
 export default function EditorPage() {
 	const { resolvedTheme, systemTheme } = useTheme();
 
 	useEffect(() => {
-		const themeToApply = resolvedTheme === 'system' ? systemTheme : resolvedTheme;
+		const themeToApply =
+			resolvedTheme === 'system' ? systemTheme : resolvedTheme;
 
 		setTimeout(() => {
 			if (document.querySelector('.tl-container')) {

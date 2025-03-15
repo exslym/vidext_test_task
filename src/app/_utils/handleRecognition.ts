@@ -1,6 +1,7 @@
 import { useEditor } from '@tldraw/tldraw';
-import { svgToBase64 } from './svgToBase64';
+
 import { renderSvgToCanvas } from './renderSvgToCanvas';
+import { svgToBase64 } from './svgToBase64';
 
 export const handleRecognition = async (
 	editor: ReturnType<typeof useEditor>,
@@ -9,7 +10,8 @@ export const handleRecognition = async (
 	if (!editor) throw new Error('Editor is not available.');
 
 	const selectedShapes = editor.getSelectedShapes();
-	if (selectedShapes.length === 0) throw new Error('No shape selected to recognize.');
+	if (selectedShapes.length === 0)
+		throw new Error('No shape selected to recognize.');
 
 	const svgString = await editor.getSvgString(selectedShapes.map(s => s.id));
 	if (!svgString?.svg) throw new Error('Could not generate SVG.');
@@ -17,7 +19,9 @@ export const handleRecognition = async (
 	const svgBase64 = svgToBase64(svgString.svg);
 	const pngBase64 = await renderSvgToCanvas(svgBase64);
 
-	const response = await recognizeShapeMutation.mutateAsync({ image: pngBase64 });
+	const response = await recognizeShapeMutation.mutateAsync({
+		image: pngBase64,
+	});
 	const recognizedShape = response.shape;
 
 	if (!recognizedShape) throw new Error('Could not recognize shape.');
