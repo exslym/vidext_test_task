@@ -19,8 +19,8 @@ const HomePage: React.FC = () => {
 						<p className='text-3xl font-bold dark:text-gray-200'>Tldraw</p>
 					</Link>
 					<div className='flex items-center gap-2'>
-						<ThemeToggle />
 						<OpenButton />
+						<ThemeToggle />
 					</div>
 				</div>
 			</Header>
