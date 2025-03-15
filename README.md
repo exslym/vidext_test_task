@@ -6,6 +6,8 @@ An advanced, yet intuitive, shape editing tool built with modern web technologie
 <br/>
 For the AI features is used free model **Qwen2.5 VL 72B Instruct (FREE)**.
 
+**[Demo View on Vercel](https://tldraw-editor.vercel.app/)**
+
 ## ✨ Features
 
 - **Create & Edit Shapes** – Draw and modify shapes easily using the interactive editor.
