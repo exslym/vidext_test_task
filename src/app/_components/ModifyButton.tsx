@@ -13,7 +13,7 @@ export default function ModifyButton() {
 		const selectedShapes = editor.getSelectedShapes();
 
 		if (selectedShapes.length === 0) {
-			alert('No selected shape to modify.');
+			alert('No shape selected to modify.');
 			return;
 		}
 

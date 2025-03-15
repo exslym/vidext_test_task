@@ -4,12 +4,7 @@ import { ReactNode } from 'react';
 
 import { cn } from '@/lib/utils';
 
-export interface IHeaderProps {
-	classes?: string;
-	children?: ReactNode;
-}
-
-export const Header: React.FC<IHeaderProps> = ({ children, classes }: IHeaderProps) => {
+export default function Header({ children, classes }: { classes?: string; children?: ReactNode }) {
 	return (
 		<header
 			className={cn(
@@ -20,5 +15,4 @@ export const Header: React.FC<IHeaderProps> = ({ children, classes }: IHeaderPro
 			{children}
 		</header>
 	);
-};
-export default Header;
+}
