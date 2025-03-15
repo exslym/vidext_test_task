@@ -1,22 +1,28 @@
 'use client';
 
 import { debounce } from 'lodash';
+
 import { useEffect, useMemo } from 'react';
+
 import {
+	TLEditorSnapshot,
 	getSnapshot,
 	loadSnapshot,
 	useEditor,
-	TLEditorSnapshot,
 } from '@tldraw/tldraw';
 import '@tldraw/tldraw/tldraw.css';
 
 import { api } from '../_utils/api';
 
-interface EditorContentProps {
-	data: TLEditorSnapshot | null;
-}
+// interface EditorContentProps {
+// 	data: TLEditorSnapshot | null;
+// }
 
-export default function EditorContent({ data }: EditorContentProps) {
+export default function EditorContent({
+	data,
+}: {
+	data: TLEditorSnapshot | null;
+}) {
 	const editor = useEditor();
 	const mutation = api.setData.useMutation();
 

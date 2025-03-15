@@ -1,13 +1,14 @@
 'use client';
 
-import { useEffect } from 'react';
 import Header from '@/app/_components/Header';
 import Hero from '@/app/_components/Hero';
 import OpenButton from '@/app/_components/OpenButton';
-import ThemeToggle from '@/components/ThemeToggle';
-import Link from 'next/link';
-import { useTheme } from 'next-themes';
 import { applyTheme } from '@/app/_utils/applyTheme';
+import ThemeToggle from '@/components/ThemeToggle';
+import { useTheme } from 'next-themes';
+import Link from 'next/link';
+
+import { useEffect } from 'react';
 
 export default function HomePage() {
 	const { resolvedTheme, systemTheme } = useTheme();

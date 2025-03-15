@@ -7,7 +7,9 @@ const openrouterai = process.env.NEXT_PUBLIC_OPENROUTER_API_KEY;
 let editorData = {};
 
 export const editorRouter = router({
-	getData: publicProcedure.query(() => editorData),
+	getData: publicProcedure.query(() => {
+		return editorData ?? {};
+	}),
 	/*   
     // Force server error: 
     getData: publicProcedure.query(() => {

@@ -1,11 +1,12 @@
 'use client';
 
-import { useState } from 'react';
 import FeatureCard from '@/app/_components/FeatureCard';
 import { Button } from '@/components/ui/button';
 import { features } from '@/constants/features';
-import Link from 'next/link';
 import { Loader2 } from 'lucide-react';
+import Link from 'next/link';
+
+import { useState } from 'react';
 
 export default function Hero() {
 	const [loading, setLoading] = useState(false);

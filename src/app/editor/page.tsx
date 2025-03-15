@@ -1,23 +1,27 @@
 'use client';
 
-import { useEffect } from 'react';
 import BackButton from '@/app/_components/BackButton';
 import EditorContent from '@/app/_components/EditorContent';
+import Error from '@/app/_components/Error';
 import Header from '@/app/_components/Header';
+import Loading from '@/app/_components/Loading';
 import ModifyButton from '@/app/_components/ModifyButton';
 import RecognizeButton from '@/app/_components/RecognizeButton';
+import { api } from '@/app/_utils/api';
+import { applyTheme } from '@/app/_utils/applyTheme';
 import ThemeToggle from '@/components/ThemeToggle';
 import { useTheme } from 'next-themes';
-import { applyTheme } from '@/app/_utils/applyTheme';
-import { api } from '@/app/_utils/api';
-import Loading from '@/app/_components/Loading';
-import Error from '@/app/_components/Error';
 
+import { useEffect } from 'react';
+
+import { TLEditorSnapshot } from '@tldraw/tldraw';
 import { Tldraw } from '@tldraw/tldraw';
 import '@tldraw/tldraw/tldraw.css';
 
 export default function EditorPage() {
-	const { data, isLoading, isError, error } = api.getData.useQuery();
+	const { data, isLoading, isError, error } =
+		api.getData.useQuery<TLEditorSnapshot>();
+
 	const { resolvedTheme, systemTheme } = useTheme();
 
 	useEffect(() => {
