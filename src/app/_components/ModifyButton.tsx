@@ -1,8 +1,8 @@
 'use client';
 
-import { TLShapeId, TLGeoShape, useEditor } from '@tldraw/tldraw';
 import { Button } from '@/components/ui/button';
 import { shapeSequence } from '@/constants/shapes';
+import { TLGeoShape, TLShapeId, useEditor } from '@tldraw/tldraw';
 
 export default function ModifyButton() {
 	const editor = useEditor();

@@ -1,9 +1,10 @@
 'use client';
 
-import { useEditor } from '@tldraw/tldraw';
 import { Button } from '@/components/ui/button';
-import { api } from '../_utils/api';
+import { useEditor } from '@tldraw/tldraw';
 import { Loader2 } from 'lucide-react';
+
+import { api } from '../_utils/api';
 
 export default function RecognizeButton() {
 	const editor = useEditor();

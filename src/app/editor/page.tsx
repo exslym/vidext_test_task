@@ -1,13 +1,14 @@
 'use client';
 
-import { Tldraw } from '@tldraw/tldraw';
-import { useTheme } from 'next-themes';
-import EditorContent from '@/app/_components/EditorContent';
-import BackButton from '@/app/_components/BackButton';
-import Header from '@/app/_components/Header';
-import '@tldraw/tldraw/tldraw.css';
-import ThemeToggle from '@/components/ThemeToggle';
 import { useEffect } from 'react';
+
+import BackButton from '@/app/_components/BackButton';
+import EditorContent from '@/app/_components/EditorContent';
+import Header from '@/app/_components/Header';
+import ThemeToggle from '@/components/ThemeToggle';
+import { Tldraw } from '@tldraw/tldraw';
+import '@tldraw/tldraw/tldraw.css';
+import { useTheme } from 'next-themes';
 
 export default function EditorPage() {
 	const { resolvedTheme, systemTheme } = useTheme();

@@ -1,8 +1,9 @@
-import TrpcProvider from './_utils/TrpcProvider';
-import type { Metadata } from 'next';
-import './globals.css';
-import { Inter } from 'next/font/google';
 import { ThemeProvider } from '@/components/ThemesProvider';
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+
+import TrpcProvider from './_utils/TrpcProvider';
+import './globals.css';
 
 export const inter = Inter({
 	subsets: ['latin'],

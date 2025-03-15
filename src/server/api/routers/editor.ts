@@ -1,6 +1,7 @@
-import { router, publicProcedure } from '../trpc';
+import { type ShapeType, shapeSequence } from '@/constants/shapes';
 import { z } from 'zod';
-import { shapeSequence, type ShapeType } from '@/constants/shapes';
+
+import { publicProcedure, router } from '../trpc';
 
 const openrouterai = process.env.OPENROUTER_API_KEY;
 let editorData = {};

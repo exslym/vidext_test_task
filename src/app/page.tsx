@@ -1,13 +1,14 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { Pencil, Save, Shapes, Palette, Download, BrainCircuit } from 'lucide-react';
+
+import FeatureCard from '@/app/_components/FeatureCard';
 import Header from '@/app/_components/Header';
 import OpenButton from '@/app/_components/OpenButton';
-import FeatureCard from '@/app/_components/FeatureCard';
 import ThemeToggle from '@/components/ThemeToggle';
+import { Button } from '@/components/ui/button';
+import { BrainCircuit, Download, Palette, Pencil, Save, Shapes } from 'lucide-react';
+import Link from 'next/link';
 
 const HomePage: React.FC = () => {
 	return (

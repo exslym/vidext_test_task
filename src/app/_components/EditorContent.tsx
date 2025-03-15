@@ -1,15 +1,17 @@
 'use client';
 
+import { useCallback, useEffect } from 'react';
+
 import { getSnapshot, loadSnapshot, useEditor } from '@tldraw/tldraw';
 import '@tldraw/tldraw/tldraw.css';
-import { api } from '../_utils/api';
-import { useCallback, useEffect } from 'react';
-import { useTheme } from 'next-themes';
 import { debounce } from 'lodash';
+import { useTheme } from 'next-themes';
+
+import { api } from '../_utils/api';
+import Error from './Error';
+import Loading from './Loading';
 import ModifyButton from './ModifyButton';
 import RecognizeButton from './RecognizeButton';
-import Loading from './Loading';
-import Error from './Error';
 
 export default function EditorContent() {
 	const editor = useEditor();
