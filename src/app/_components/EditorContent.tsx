@@ -14,10 +14,6 @@ import '@tldraw/tldraw/tldraw.css';
 
 import { api } from '../_utils/api';
 
-// interface EditorContentProps {
-// 	data: TLEditorSnapshot | null;
-// }
-
 export default function EditorContent({
 	data,
 }: {

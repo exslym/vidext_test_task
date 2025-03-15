@@ -3,7 +3,6 @@
 import FeatureCard from '@/app/_components/FeatureCard';
 import { Button } from '@/components/ui/button';
 import { features } from '@/constants/features';
-import { Loader2 } from 'lucide-react';
 import Link from 'next/link';
 
 import { useState } from 'react';
@@ -44,14 +43,7 @@ export default function Hero() {
 					className='rounded-lg bg-gray-secondary px-4 py-2 shadow-lg hover:bg-gray-600 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-500'
 					size='lg'
 				>
-					{loading ? (
-						<>
-							<Loader2 size={18} className='mr-2 animate-spin' />
-							<span>Loading...</span>
-						</>
-					) : (
-						<>Open Editor</>
-					)}
+					Open Editor
 				</Button>
 			</Link>
 		</section>

@@ -2,7 +2,6 @@
 
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
-import { Loader2 } from 'lucide-react';
 import Link from 'next/link';
 
 import { useState } from 'react';
@@ -22,17 +21,8 @@ export default function OpenButton() {
 				className='w-36 rounded-lg bg-gray-secondary px-4 py-2 text-center shadow-sm hover:bg-gray-600 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-500'
 				size='lg'
 			>
-				{loading ? (
-					<>
-						<Loader2 size={18} className='mr-2 animate-spin' />
-						<span>Loading...</span>
-					</>
-				) : (
-					<>
-						Open Editor
-						<ArrowRight size={18} />
-					</>
-				)}
+				Open Editor
+				<ArrowRight size={18} />
 			</Button>
 		</Link>
 	);
