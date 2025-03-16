@@ -1,23 +1,13 @@
 'use client';
 
-import { useEffect } from 'react';
-
 import Header from '@/app/_components/Header';
 import Hero from '@/app/_components/Hero';
 import OpenButton from '@/app/_components/OpenButton';
-import { applyTheme } from '@/app/_utils/applyTheme';
-import { useTheme } from 'next-themes';
 import Link from 'next/link';
 
 import ThemeToggle from '@/components/ThemeToggle';
 
 export default function HomePage() {
-	const { resolvedTheme, systemTheme } = useTheme();
-
-	useEffect(() => {
-		applyTheme(resolvedTheme, systemTheme);
-	}, [resolvedTheme, systemTheme]);
-
 	return (
 		<div className='flex h-screen w-full flex-col'>
 			<Header>

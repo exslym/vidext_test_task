@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo } from 'react';
+import { useEffect } from 'react';
 
 import {
 	TLEditorSnapshot,
@@ -19,42 +19,46 @@ export default function EditorContent({
 	data: TLEditorSnapshot | null;
 }) {
 	const editor = useEditor();
+
 	const mutation = api.setData.useMutation();
 
-	const debouncedSave = useMemo(
-		() =>
-			debounce((snapshot: TLEditorSnapshot) => {
-				mutation.mutate(snapshot);
-			}, 500),
-		[mutation]
-	);
+	const debouncedSave = debounce((snapshot: TLEditorSnapshot) => {
+		mutation.mutate(snapshot);
+	}, 500);
 
-	useEffect(() => {
+	const loadData = () => {
 		if (!editor || !data) return;
 		try {
 			loadSnapshot(editor.store, data);
 		} catch (error) {
 			alert(`Error loading snapshot:\n${error}`);
 		}
+	};
+
+	const saveData = () => {
+		if (!editor) return;
+		try {
+			const snapshot = getSnapshot(editor.store);
+			debouncedSave(snapshot);
+		} catch (error) {
+			alert(`Error saving snapshot:\n${error}`);
+		}
+	};
+
+	useEffect(() => {
+		loadData();
 	}, [editor, data]);
 
 	useEffect(() => {
 		if (!editor) return;
 
-		const unsubscribe = editor.store.listen(() => {
-			try {
-				const snapshot = getSnapshot(editor.store);
-				debouncedSave(snapshot);
-			} catch (error) {
-				alert(`Error saving snapshot:\n${error}`);
-			}
-		});
+		const unsubscribe = editor.store.listen(saveData);
 
 		return () => {
 			unsubscribe();
 			debouncedSave.cancel();
 		};
-	}, [editor, debouncedSave]);
+	}, [editor]);
 
 	return null;
 }

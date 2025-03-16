@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
 import BackButton from '@/app/_components/BackButton';
 import EditorContent from '@/app/_components/EditorContent';
@@ -12,36 +12,39 @@ import RecognizeButton from '@/app/_components/RecognizeButton';
 import { api } from '@/app/_utils/api';
 import { applyTheme } from '@/app/_utils/applyTheme';
 import { TLEditorSnapshot } from '@tldraw/tldraw';
-import { Tldraw } from '@tldraw/tldraw';
 import '@tldraw/tldraw/tldraw.css';
 import { useTheme } from 'next-themes';
+import dynamic from 'next/dynamic';
 
 import ThemeToggle from '@/components/ThemeToggle';
+
+const Tldraw = dynamic(async () => (await import('@tldraw/tldraw')).Tldraw, {
+	ssr: false,
+});
 
 export default function EditorPage() {
 	const { data, isLoading, isError, error } =
 		api.getData.useQuery<TLEditorSnapshot>();
-
-	const { resolvedTheme, systemTheme } = useTheme();
-	const [editorLoaded, setEditorLoaded] = useState(false);
+	const { resolvedTheme } = useTheme();
+	const tldrawContainerRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
-		if (editorLoaded) {
-			applyTheme(resolvedTheme, systemTheme);
-		}
-	}, [resolvedTheme, systemTheme, editorLoaded]);
+		if (!tldrawContainerRef.current || !tldrawContainerRef.current.firstChild)
+			return;
+		const theme = resolvedTheme === 'dark' ? 'dark' : 'light';
+		const tldraw = tldrawContainerRef.current.firstChild as HTMLElement;
+		applyTheme(theme, tldraw);
+	}, [resolvedTheme]);
 
 	if (isLoading) return <Loading />;
 	if (isError) return <Error message={error?.message} />;
 
 	return (
-		<div className='bg-light relative flex h-screen w-full dark:bg-dark-secondary'>
-			<Tldraw
-				onMount={() => {
-					setEditorLoaded(true);
-				}}
-				className='pt-14'
-			>
+		<div
+			ref={tldrawContainerRef}
+			className='bg-light relative flex h-screen w-full dark:bg-dark-secondary'
+		>
+			<Tldraw inferDarkMode persistenceKey='key' className={'pt-14'}>
 				<Header classes='absolute top-0'>
 					<nav
 						aria-label='Editor navigation'
