@@ -13,7 +13,7 @@ For the AI features is used free model **Qwen2.5 VL 72B Instruct (FREE)**.
 - **Create & Edit Shapes** – Draw and modify shapes easily using the interactive editor.
 - **Shape Modification** – Instantly transform selected shapes using the **Modify Shape** button.
 - **AI Shape Recognition** – Select a shape and let AI determine its type with the **Recognize Shape (AI)** button.
-- **Theme Switching** – Switch themes for your convenience (light/dark mode).
+- **Theme Switching** – Switch between light and dark modes, or let the app adapt to your system's theme automatically.
 - **Auto Save** – Your work is automatically saved and restored when you reload the page.
 - **User-Friendly Design** – Clean UI with responsive layout and easy navigation.
 - **Responsive & Adaptive UI** – The editor is fully optimized for desktops, tablets, and mobile devices.
