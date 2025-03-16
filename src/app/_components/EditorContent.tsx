@@ -1,7 +1,5 @@
 'use client';
 
-import { debounce } from 'lodash';
-
 import { useEffect, useMemo } from 'react';
 
 import {
@@ -11,6 +9,7 @@ import {
 	useEditor,
 } from '@tldraw/tldraw';
 import '@tldraw/tldraw/tldraw.css';
+import { debounce } from 'lodash';
 
 import { api } from '../_utils/api';
 
@@ -27,7 +26,7 @@ export default function EditorContent({
 			debounce((snapshot: TLEditorSnapshot) => {
 				mutation.mutate(snapshot);
 			}, 500),
-		[mutation],
+		[mutation]
 	);
 
 	useEffect(() => {

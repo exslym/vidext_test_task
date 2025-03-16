@@ -1,6 +1,7 @@
-import { ThemeProvider } from '@/components/ThemesProvider';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+
+import { ThemeProvider } from '@/components/ThemesProvider';
 
 import TrpcProvider from './_utils/TrpcProvider';
 import './globals.css';

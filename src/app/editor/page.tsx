@@ -1,5 +1,7 @@
 'use client';
 
+import { useEffect, useState } from 'react';
+
 import BackButton from '@/app/_components/BackButton';
 import EditorContent from '@/app/_components/EditorContent';
 import Error from '@/app/_components/Error';
@@ -9,14 +11,12 @@ import ModifyButton from '@/app/_components/ModifyButton';
 import RecognizeButton from '@/app/_components/RecognizeButton';
 import { api } from '@/app/_utils/api';
 import { applyTheme } from '@/app/_utils/applyTheme';
-import ThemeToggle from '@/components/ThemeToggle';
-import { useTheme } from 'next-themes';
-
-import { useEffect, useState } from 'react';
-
 import { TLEditorSnapshot } from '@tldraw/tldraw';
 import { Tldraw } from '@tldraw/tldraw';
 import '@tldraw/tldraw/tldraw.css';
+import { useTheme } from 'next-themes';
+
+import ThemeToggle from '@/components/ThemeToggle';
 
 export default function EditorPage() {
 	const { data, isLoading, isError, error } =

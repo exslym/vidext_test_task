@@ -2,10 +2,10 @@
 
 import { api } from '@/app/_utils/api';
 import { handleRecognition } from '@/app/_utils/handleRecognition';
-import { Button } from '@/components/ui/button';
+import { useEditor } from '@tldraw/tldraw';
 import { Loader2 } from 'lucide-react';
 
-import { useEditor } from '@tldraw/tldraw';
+import { Button } from '@/components/ui/button';
 
 export default function RecognizeButton() {
 	const editor = useEditor();

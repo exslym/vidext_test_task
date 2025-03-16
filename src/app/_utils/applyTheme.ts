@@ -1,6 +1,6 @@
 export const applyTheme = (
 	resolvedTheme: string | undefined,
-	systemTheme: string | undefined,
+	systemTheme: string | undefined
 ) => {
 	const themeToApply = resolvedTheme === 'system' ? systemTheme : resolvedTheme;
 
@@ -12,7 +12,7 @@ export const applyTheme = (
 		if (document.querySelector('.tl-container')) {
 			const tldrawContainer = document.querySelector('.tl-container');
 			const tldrawStylePanelColors = document.querySelector(
-				"[data-testid='style.color']",
+				"[data-testid='style.color']"
 			);
 			const firstDefaultColor = tldrawStylePanelColors?.children[0];
 

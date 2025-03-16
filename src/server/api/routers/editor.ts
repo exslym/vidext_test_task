@@ -57,14 +57,14 @@ export const editorRouter = router({
 							},
 						],
 					}),
-				},
+				}
 			);
 
 			const responseData = await response.json();
 
 			console.log(
 				'OpenRouter API response:',
-				JSON.stringify(responseData, null, 2),
+				JSON.stringify(responseData, null, 2)
 			);
 
 			if (
@@ -73,7 +73,7 @@ export const editorRouter = router({
 				responseData.choices.length === 0
 			) {
 				throw new Error(
-					`AI recognition service failed: ${JSON.stringify(responseData)}`,
+					`AI recognition service failed: ${JSON.stringify(responseData)}`
 				);
 			}
 

@@ -12,7 +12,7 @@ type RecognizeShapeMutation = UseMutationResult<
 
 export const handleRecognition = async (
 	editor: ReturnType<typeof useEditor>,
-	recognizeShapeMutation: RecognizeShapeMutation,
+	recognizeShapeMutation: RecognizeShapeMutation
 ) => {
 	if (!editor) {
 		throw new Error('Editor is not available.');
