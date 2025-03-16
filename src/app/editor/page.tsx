@@ -12,7 +12,7 @@ import { applyTheme } from '@/app/_utils/applyTheme';
 import ThemeToggle from '@/components/ThemeToggle';
 import { useTheme } from 'next-themes';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import { TLEditorSnapshot } from '@tldraw/tldraw';
 import { Tldraw } from '@tldraw/tldraw';
@@ -23,17 +23,25 @@ export default function EditorPage() {
 		api.getData.useQuery<TLEditorSnapshot>();
 
 	const { resolvedTheme, systemTheme } = useTheme();
+	const [editorLoaded, setEditorLoaded] = useState(false);
 
 	useEffect(() => {
-		applyTheme(resolvedTheme, systemTheme);
-	}, [resolvedTheme, systemTheme]);
+		if (editorLoaded) {
+			applyTheme(resolvedTheme, systemTheme);
+		}
+	}, [resolvedTheme, systemTheme, editorLoaded]);
 
 	if (isLoading) return <Loading />;
 	if (isError) return <Error message={error?.message} />;
 
 	return (
 		<div className='bg-light relative flex h-screen w-full dark:bg-dark-secondary'>
-			<Tldraw className='pt-14'>
+			<Tldraw
+				onMount={() => {
+					setEditorLoaded(true);
+				}}
+				className='pt-14'
+			>
 				<Header classes='absolute top-0'>
 					<nav
 						aria-label='Editor navigation'

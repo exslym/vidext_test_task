@@ -29,7 +29,7 @@ export default function Hero() {
 				{features.map(({ icon: Icon, color, title, description }) => (
 					<FeatureCard
 						key={title}
-						icon={<Icon size={30} className={color} />}
+						icon={<Icon size={30} stroke={color} />}
 						title={title}
 						description={description}
 					/>
