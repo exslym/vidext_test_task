@@ -6,7 +6,7 @@ An advanced, yet intuitive, shape editing tool built with modern web technologie
 <br/>
 For the AI features is used free model **Qwen2.5 VL 72B Instruct (FREE)**.
 
-**[Demo View on Vercel](https://tldraw-editor.vercel.app/)**
+<a href="https://tldraw-editor.vercel.app/" target="_blank" rel="noopener noreferrer">**Demo View on Vercel**</a>
 
 ## ✨ Features
 
@@ -42,17 +42,17 @@ For the AI features is used free model **Qwen2.5 VL 72B Instruct (FREE)**.
 
 ### Frontend
 
-- **[Next.js](https://nextjs.org/)** – Provides SSR and API routes, ensuring fast and efficient rendering.
-- **[React](https://react.dev/)** – Enables dynamic and component-based UI interactions.
-- **[TailwindCSS](https://tailwindcss.com/)** – A utility-first CSS framework for quick and beautiful styling.
-- **[Shadcn/UI](https://ui.shadcn.com/)** – Delivers high-quality UI components for a smooth user experience.
-- **[Tldraw](https://tldraw.com/)** – The core library behind the drawing editor, providing shape manipulation tools.
+- <a href="https://nextjs.org/" target="_blank" rel="noopener noreferrer">**Next.js**</a> – Provides SSR and API routes, ensuring fast and efficient rendering.
+- <a href="https://react.dev/" target="_blank" rel="noopener noreferrer">**React**</a> – Enables dynamic and component-based UI interactions.
+- <a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer">**TailwindCSS**</a> – A utility-first CSS framework for quick and beautiful styling.
+- <a href="https://ui.shadcn.com/" target="_blank" rel="noopener noreferrer">**Shadcn/UI**</a> – Delivers high-quality UI components for a smooth user experience.
+- <a href="https://tldraw.com/" target="_blank" rel="noopener noreferrer">**Tldraw**</a> – The core library behind the drawing editor, providing shape manipulation tools.
 
 ### Backend
 
-- **[tRPC](https://trpc.io/)** – Ensures type-safe API communication between frontend and backend.
-- **[Zod](https://zod.dev/)** – Used for input validation and schema enforcement.
-- **[Lodash Debounce](https://lodash.com/docs/4.17.15#debounce)** – Optimizes auto-save by reducing redundant API calls.
+- <a href="https://trpc.io/" target="_blank" rel="noopener noreferrer">**tRPC**</a> – Ensures type-safe API communication between frontend and backend.
+- <a href="https://zod.dev/" target="_blank" rel="noopener noreferrer">**Zod**</a> – Used for input validation and schema enforcement.
+- <a href="https://lodash.com/docs/4.17.15#debounce" target="_blank" rel="noopener noreferrer">**Lodash Debounce**</a> – Optimizes auto-save by reducing redundant API calls.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -81,7 +81,7 @@ npm install
 ```
 
 3. Create a .env file in the root of the project
-4. Sign in the [OPENROUTER.AI](https://openrouter.ai/models) ( via Google or Github)
+4. Sign in the <a href="https://openrouter.ai/models" target="_blank" rel="noopener noreferrer">**OPENROUTER.AI**</a> ( via Google or Github)
 5. Choose and click on prefered visual understanding model (**Qwen2.5 VL 72B Instruct (FREE)** is used in this project)
 6. Then go to tab **API** and click **Create API key**
 7. Add your key as **NEXT_PUBLIC_OPENROUTER_API_KEY** in .env
