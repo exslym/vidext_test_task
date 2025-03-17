@@ -1,29 +1,18 @@
 'use client';
 
-import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { getProjects, getPreviews, deleteProject } from '@/app/_utils/storage';
-import { Trash2 } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { getProjects, getPreviews } from '@/app/_utils/storage';
+import Selector from '@/app/_components/Selector';
+import { handleDelete, sortProjects } from '@/app/_utils/galleryUtils';
+import { Projects, Previews } from '@/app/_utils/types';
+import ProjectCard from '@/app/_components/ProjectCard';
 
-interface GalleryContentProps {
-	onProjectClick?: (name: string) => void;
-}
-
-export default function GalleryContent({
-	onProjectClick,
-}: GalleryContentProps) {
-	const [projects, setProjects] = useState<Record<string, unknown>>({});
-	const [previews, setPreviews] = useState<Record<string, string>>({});
-
-	const handleDelete = (name: string) => {
-		deleteProject(name);
-
-		const updatedProjects = getProjects();
-		const updatedPreviews = getPreviews();
-		setProjects(updatedProjects);
-		setPreviews(updatedPreviews);
-	};
+export default function GalleryContent() {
+	const [projects, setProjects] = useState<Projects>({});
+	const [previews, setPreviews] = useState<Previews>({});
+	const [sortType, setSortType] = useState<
+		'lastEdited' | 'alphabeticalAsc' | 'alphabeticalDesc' | 'createdAt'
+	>('lastEdited');
 
 	useEffect(() => {
 		const projects = getProjects();
@@ -32,6 +21,8 @@ export default function GalleryContent({
 		setPreviews(previews);
 	}, []);
 
+	const sortedProjects = sortProjects(projects, sortType);
+
 	return (
 		<section className='container flex w-full items-center justify-center py-14 text-center'>
 			{Object.keys(projects).length === 0 ? (
@@ -39,40 +30,22 @@ export default function GalleryContent({
 					No saved projects yet.
 				</h1>
 			) : (
-				<div className='flex w-full flex-col items-center justify-start space-y-10'>
+				<div className='flex w-full flex-col items-center justify-start gap-8'>
 					<h1 className='text-5xl font-bold dark:text-gray-200'>
 						Saved Projects
 					</h1>
-					<ul className='grid-cols-auto-fit-238 grid w-full justify-center gap-6'>
-						{Object.entries(projects).map(([name]) => (
-							<li
-								key={name}
-								className='bg-light relative flex h-auto w-full items-center justify-center rounded-lg border border-gray-100 p-4 shadow-lg transition-transform hover:scale-105 dark:border-gray-600 dark:bg-gray-800'
-							>
-								<Link
-									href={`/editor?project=${encodeURIComponent(name)}`}
-									className='flex h-full w-full cursor-pointer flex-col items-start justify-between gap-3 text-gray-700 hover:text-blue-400 dark:text-gray-400 hover:dark:text-gray-300'
-									onClick={() => onProjectClick?.(name)}
-								>
-									<div className='bg-light flex h-auto w-full items-center justify-center overflow-hidden rounded bg-gray-50 dark:bg-dark-secondary'>
-										<div
-											className='svg-container'
-											dangerouslySetInnerHTML={{ __html: previews[name] || '' }}
-										></div>
-									</div>
-									<p className='text-md w-10/12 truncate text-left leading-normal'>
-										{name}
-									</p>
-								</Link>
 
-								<Button
-									onClick={() => handleDelete(name)}
-									className='absolute bottom-2 right-2 bg-transparent p-2 text-red-500 shadow-none hover:bg-transparent'
-									title='delete'
-								>
-									<Trash2 size={22} />
-								</Button>
-							</li>
+					<Selector onSortChange={setSortType} />
+
+					<ul className='grid-cols-auto-fit-238 grid w-full justify-center gap-6'>
+						{sortedProjects.map(([name, data]) => (
+							<ProjectCard
+								key={name}
+								name={name}
+								data={data}
+								preview={previews[name]}
+								onDelete={() => handleDelete(name, setProjects, setPreviews)}
+							/>
 						))}
 					</ul>
 				</div>

@@ -1,4 +1,5 @@
 import { TLEditorSnapshot } from '@tldraw/tldraw';
+import { Projects, Previews } from './types';
 
 const STORAGE_KEY = 'tldraw_projects';
 const PREVIEW_STORAGE_KEY = 'tldraw_previews';
@@ -11,7 +12,13 @@ export function saveProject(
 	const projects = getProjects();
 	const previews = getPreviews();
 
-	projects[name] = snapshot;
+	const now = Date.now();
+
+	projects[name] = {
+		snapshot,
+		createdAt: projects[name]?.createdAt || now,
+		updatedAt: now,
+	};
 
 	if (previewSvg) {
 		previews[name] = previewSvg;
@@ -21,7 +28,7 @@ export function saveProject(
 	localStorage.setItem(STORAGE_KEY, JSON.stringify(projects));
 }
 
-export function getProjects(): Record<string, TLEditorSnapshot> {
+export function getProjects(): Projects {
 	if (typeof window === 'undefined') return {};
 	const projects = localStorage.getItem(STORAGE_KEY);
 	return projects ? JSON.parse(projects) : {};
@@ -29,7 +36,7 @@ export function getProjects(): Record<string, TLEditorSnapshot> {
 
 export function loadProject(name: string): TLEditorSnapshot | null {
 	const projects = getProjects();
-	return projects[name] || null;
+	return projects[name]?.snapshot || null;
 }
 
 export function deleteProject(name: string) {
@@ -43,7 +50,7 @@ export function deleteProject(name: string) {
 	localStorage.setItem(PREVIEW_STORAGE_KEY, JSON.stringify(previews));
 }
 
-export function getPreviews(): Record<string, string> {
+export function getPreviews(): Previews {
 	if (typeof window === 'undefined') return {};
 	const previews = localStorage.getItem(PREVIEW_STORAGE_KEY);
 	return previews ? JSON.parse(previews) : {};
