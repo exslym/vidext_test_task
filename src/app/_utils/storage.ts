@@ -53,7 +53,7 @@ export function loadProject(name: string): TLEditorSnapshot | null {
 		const projects = getProjects();
 		return projects[name]?.snapshot || null;
 	} catch (error) {
-		toast.error(`Failed to load project "${name}".`);
+		toast.error(`Failed to load project "${name}".\n${error}`);
 		return null;
 	}
 }
@@ -82,7 +82,7 @@ export function getLastEditedProject(): string | null {
 	try {
 		return localStorage.getItem('lastEditedProject');
 	} catch (error) {
-		toast.error('Failed to retrieve the last edited project.');
+		toast.error(`Failed to retrieve the last edited project.\n${error}`);
 		return null;
 	}
 }
