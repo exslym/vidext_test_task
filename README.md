@@ -14,7 +14,7 @@ For the AI features is used free model **Qwen2.5 VL 72B Instruct (FREE)**.
 - **Shape Modification** – Instantly transform selected shapes using the **Modify Shape** button.
 - **AI Shape Recognition** – Select a shape and let AI determine its type with the **Recognize Shape (AI)** button.
 - **Theme Switching** – Switch between light and dark modes, or let the app adapt to your system's theme automatically.
-- **Auto Save** – Your work is automatically saved and restored when you reload the page.
+- **Save Project** – Save your projects and see them in the gallery page.
 - **User-Friendly Design** – Clean UI with responsive layout and easy navigation.
 - **Responsive & Adaptive UI** – The editor is fully optimized for desktops, tablets, and mobile devices.
 
@@ -33,6 +33,14 @@ For the AI features is used free model **Qwen2.5 VL 72B Instruct (FREE)**.
 ### 🖌 Editor Page
 
 ![Editor Screenshot](https://github.com/exslym/vidext_test_task/blob/main/public/editor-page.png 'Editor in Action')
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+---
+
+### 🖌 Gallery Page
+
+<!-- ![Editor Screenshot](https://github.com/exslym/vidext_test_task/blob/main/public/editor-page.png 'Gallery Page') -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -84,7 +92,7 @@ npm install
 4. Sign in the <a href="https://openrouter.ai/models" target="_blank" rel="noopener noreferrer">**OPENROUTER.AI**</a> ( via Google or Github)
 5. Choose and click on prefered visual understanding model (**Qwen2.5 VL 72B Instruct (FREE)** is used in this project)
 6. Then go to tab **API** and click **Create API key**
-7. Add your key as **NEXT_PUBLIC_OPENROUTER_API_KEY** in .env
+7. Add your key as **NEXT_OPENROUTER_API_KEY** in .env
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -111,7 +119,8 @@ http://localhost:3000
 - **Modify a Shape** – Select a shape and click the Modify Shape button to change its type.
 - **Recognize a Shape (AI)** – Select a shape and click Recognize Shape (AI) to detect its type.
 - **Theme Switching** – Click Theme Switcher to switch between light and dark mode.
-- **Auto Save** – Your progress is saved automatically.
+- **Save Project** – Save your projects and see them in the gallery page.
+- **Go to the Gallery** – Navigate to the gallery page from the homepage or editor page and there you can edit or delete your projects.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

@@ -3,7 +3,7 @@ import { z } from 'zod';
 
 import { publicProcedure, router } from '../trpc';
 
-const openrouterai = process.env.NEXT_PUBLIC_OPENROUTER_API_KEY;
+const openrouterai = process.env.NEXT_OPENROUTER_API_KEY;
 let editorData = {};
 
 export const editorRouter = router({
