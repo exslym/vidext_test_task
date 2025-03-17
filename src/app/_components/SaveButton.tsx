@@ -81,7 +81,7 @@ export default function SaveButton({ projectName }: SaveButtonProps) {
 					setInputValue(e.target.value);
 				}}
 				onFocus={handleSelectText}
-				className='border-lightgray h-10 bg-background font-medium leading-none shadow-none'
+				className='border-lightgray h-10 bg-background font-medium leading-none shadow-none dark:border-none dark:bg-gray-500'
 			/>
 
 			<Button
