@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
-import { ArrowRight } from 'lucide-react';
+import { Pencil } from 'lucide-react';
 import Link from 'next/link';
 
 import { Button } from '@/components/ui/button';
@@ -33,11 +33,11 @@ export default function OpenButton() {
 			<Button
 				onClick={handleClick}
 				disabled={loading}
-				className='w-36 rounded-lg bg-gray-secondary px-4 py-2 text-center shadow-sm hover:bg-gray-600 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-500'
+				className='rounded-lg bg-gray-secondary px-4 py-2 text-center shadow-sm hover:bg-gray-600 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-500'
 				size='lg'
 			>
+				<Pencil size={18} />
 				Open Editor
-				<ArrowRight size={18} />
 			</Button>
 		</Link>
 	);

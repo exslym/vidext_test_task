@@ -86,7 +86,7 @@ export default function SaveButton({ projectName }: SaveButtonProps) {
 
 			<Button
 				onClick={handleSave}
-				className='w-28 rounded-lg bg-gray-secondary px-4 py-2 text-center shadow-sm hover:bg-gray-600 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-500'
+				className='rounded-lg bg-gray-secondary px-4 py-2 text-center shadow-sm hover:bg-gray-600 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-500'
 				size='lg'
 			>
 				<Save size={16} />

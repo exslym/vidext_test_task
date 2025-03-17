@@ -1,20 +1,10 @@
 'use client';
 
-import { useState } from 'react';
-
 import FeatureCard from '@/app/_components/FeatureCard';
 import { features } from '@/constants/features';
-import Link from 'next/link';
-
-import { Button } from '@/components/ui/button';
+import OpenButton from './OpenButton';
 
 export default function Hero() {
-	const [loading, setLoading] = useState(false);
-
-	const handleClick = () => {
-		setLoading(true);
-	};
-
 	return (
 		<section className='container flex w-full flex-col items-center justify-start space-y-10 py-14 text-center'>
 			<h1 className='text-5xl font-bold dark:text-gray-200'>
@@ -37,16 +27,7 @@ export default function Hero() {
 				))}
 			</div>
 
-			<Link href='/editor'>
-				<Button
-					onClick={handleClick}
-					disabled={loading}
-					className='rounded-lg bg-gray-secondary px-4 py-2 shadow-lg hover:bg-gray-600 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-500'
-					size='lg'
-				>
-					Open Editor
-				</Button>
-			</Link>
+			<OpenButton />
 		</section>
 	);
 }
