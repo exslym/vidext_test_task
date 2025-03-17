@@ -28,7 +28,7 @@ export default function SaveButton({ projectName }: SaveButtonProps) {
 		event.target.select();
 	};
 
-	const handleSave = () => {
+	const handleSave = async () => {
 		if (!editor) return;
 
 		try {
@@ -50,8 +50,17 @@ export default function SaveButton({ projectName }: SaveButtonProps) {
 				}
 			}
 
-			saveProject(finalName, snapshot);
+			const shapes = editor.getCurrentPageShapes();
+			const svgElement = await editor.getSvg(shapes);
+
+			const svgString = svgElement
+				? new XMLSerializer().serializeToString(svgElement)
+				: undefined;
+
+			saveProject(finalName, snapshot, svgString);
+
 			localStorage.setItem('lastEditedProject', finalName);
+
 			router.replace(`/editor?project=${encodeURIComponent(finalName)}`);
 
 			alert(`Project "${finalName}" saved successfully!`);

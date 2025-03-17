@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { getProjects, deleteProject } from '@/app/_utils/storage';
+import { getProjects, getPreviews, deleteProject } from '@/app/_utils/storage';
 import { Trash2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -14,17 +14,22 @@ export default function GalleryContent({
 	onProjectClick,
 }: GalleryContentProps) {
 	const [projects, setProjects] = useState<Record<string, unknown>>({});
+	const [previews, setPreviews] = useState<Record<string, string>>({});
 
 	useEffect(() => {
 		const projects = getProjects();
+		const previews = getPreviews();
 		setProjects(projects);
+		setPreviews(previews);
 	}, []);
 
 	const handleDelete = (name: string) => {
 		deleteProject(name);
 
 		const updatedProjects = getProjects();
+		const updatedPreviews = getPreviews();
 		setProjects(updatedProjects);
+		setPreviews(updatedPreviews);
 	};
 
 	return (
@@ -42,14 +47,19 @@ export default function GalleryContent({
 						{Object.entries(projects).map(([name]) => (
 							<li
 								key={name}
-								className='bg-light relative flex h-52 w-full items-center justify-center rounded-lg border border-gray-100 p-4 shadow-lg transition-transform hover:scale-105 dark:border-gray-600 dark:bg-gray-800'
+								className='bg-light relative flex h-auto w-full items-center justify-center rounded-lg border border-gray-100 p-4 shadow-lg transition-transform hover:scale-105 dark:border-gray-600 dark:bg-gray-800'
 							>
 								<Link
 									href={`/editor?project=${encodeURIComponent(name)}`}
 									className='flex h-full w-full cursor-pointer flex-col items-start justify-between gap-3 text-gray-700 hover:text-blue-400 dark:text-gray-400 hover:dark:text-gray-300'
 									onClick={() => onProjectClick?.(name)}
 								>
-									<div className='h-full w-full rounded bg-gray-200 dark:bg-gray-700'></div>
+									<div className='bg-light flex h-auto w-full items-center justify-center overflow-hidden rounded bg-gray-50 dark:bg-dark-secondary'>
+										<div
+											className='svg-container'
+											dangerouslySetInnerHTML={{ __html: previews[name] || '' }}
+										></div>
+									</div>
 									<p className='text-md w-10/12 truncate text-left leading-normal'>
 										{name}
 									</p>

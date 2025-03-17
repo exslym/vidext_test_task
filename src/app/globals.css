@@ -67,3 +67,9 @@
 		@apply bg-background text-foreground;
 	}
 }
+
+@layer components {
+	.svg-container svg {
+		@apply max-h-36 max-w-full;
+	}
+}
