@@ -10,7 +10,7 @@ export default function FeatureCard({
 	description: string;
 }) {
 	return (
-		<div className='bg-light flex flex-col items-center rounded-lg p-6 shadow-lg dark:bg-gray-800'>
+		<div className='bg-light flex flex-col items-center rounded-lg border border-gray-100 p-6 shadow-lg dark:border-gray-600 dark:bg-gray-800'>
 			<div className='rounded-full bg-gray-primary p-3 dark:bg-gray-700'>
 				{icon}
 			</div>

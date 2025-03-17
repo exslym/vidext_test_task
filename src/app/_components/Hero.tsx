@@ -26,7 +26,7 @@ export default function Hero() {
 				<br />
 				With this multifunctional tool you can do a lot of things.
 			</p>
-			<div className='mt-12 grid w-full grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3'>
+			<div className='grid w-full grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3'>
 				{features.map(({ icon: Icon, color, title, description }) => (
 					<FeatureCard
 						key={title}

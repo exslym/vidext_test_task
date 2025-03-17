@@ -22,6 +22,10 @@ const config: Config = {
 				'inset-bottom-lightgray': 'inset 0 -1px lightgray',
 				'inset-bottom-black': 'inset 0 -1px black',
 			},
+			gridTemplateColumns: {
+				'auto-fill-238': 'repeat(auto-fill, minmax(238px, 325px))',
+				'auto-fit-238': 'repeat(auto-fit, minmax(238px, 325px))',
+			},
 			colors: {
 				gray: {
 					primary: '#edf0f2',
