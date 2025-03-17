@@ -10,7 +10,6 @@ import {
 import '@tldraw/tldraw/tldraw.css';
 import { debounce } from 'lodash';
 import { loadProject } from '../_utils/storage';
-import { useRouter } from 'next/navigation';
 import { api } from '../_utils/api';
 
 export default function EditorContent({
@@ -19,7 +18,6 @@ export default function EditorContent({
 	data: TLEditorSnapshot | null;
 }) {
 	const editor = useEditor();
-	const router = useRouter();
 	const [projectName, setProjectName] = useState<string | null>(null);
 
 	useEffect(() => {

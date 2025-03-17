@@ -6,7 +6,6 @@ import OpenButton from '@/app/_components/OpenButton';
 import Link from 'next/link';
 
 import ThemeToggle from '@/components/ThemeToggle';
-import { Button } from '@/components/ui/button';
 import GalleryButton from './_components/GalleryButton';
 
 export default function HomePage() {

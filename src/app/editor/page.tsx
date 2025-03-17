@@ -16,11 +16,8 @@ import { TLEditorSnapshot } from '@tldraw/tldraw';
 import '@tldraw/tldraw/tldraw.css';
 import { useTheme } from 'next-themes';
 import dynamic from 'next/dynamic';
-import { useRouter } from 'next/navigation';
 
 import ThemeToggle from '@/components/ThemeToggle';
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
 import GalleryButton from '../_components/GalleryButton';
 
 const Tldraw = dynamic(async () => (await import('@tldraw/tldraw')).Tldraw, {
@@ -32,7 +29,6 @@ export default function EditorPage() {
 		api.getData.useQuery<TLEditorSnapshot>();
 	const { resolvedTheme } = useTheme();
 	const tldrawContainerRef = useRef<HTMLDivElement>(null);
-	const router = useRouter();
 	const [projectName, setProjectName] = useState<string | null>(null);
 
 	useEffect(() => {
