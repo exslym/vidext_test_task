@@ -35,7 +35,7 @@ export const handleRecognition = async (
 	try {
 		response = await recognizeShapeMutation.mutateAsync({ image: pngBase64 });
 	} catch (error) {
-		alert(`Error during AI recognition:\n${error}`);
+		// alert(`AI recognition failed:\n${error}`);
 		throw new Error('AI recognition failed.');
 	}
 

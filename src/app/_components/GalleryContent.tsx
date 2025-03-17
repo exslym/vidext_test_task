@@ -16,13 +16,6 @@ export default function GalleryContent({
 	const [projects, setProjects] = useState<Record<string, unknown>>({});
 	const [previews, setPreviews] = useState<Record<string, string>>({});
 
-	useEffect(() => {
-		const projects = getProjects();
-		const previews = getPreviews();
-		setProjects(projects);
-		setPreviews(previews);
-	}, []);
-
 	const handleDelete = (name: string) => {
 		deleteProject(name);
 
@@ -31,6 +24,13 @@ export default function GalleryContent({
 		setProjects(updatedProjects);
 		setPreviews(updatedPreviews);
 	};
+
+	useEffect(() => {
+		const projects = getProjects();
+		const previews = getPreviews();
+		setProjects(projects);
+		setPreviews(previews);
+	}, []);
 
 	return (
 		<section className='container flex w-full items-center justify-center py-14 text-center'>

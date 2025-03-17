@@ -63,7 +63,7 @@ export default function SaveButton({ projectName }: SaveButtonProps) {
 
 			router.replace(`/editor?project=${encodeURIComponent(finalName)}`);
 
-			alert(`Project "${finalName}" saved successfully!`);
+			// alert(`Project "${finalName}" saved successfully!`);
 
 			setInputValue(finalName);
 		} catch (error) {
