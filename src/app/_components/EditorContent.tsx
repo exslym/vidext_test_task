@@ -1,7 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
-
+import { useEffect, useState } from 'react';
 import {
 	TLEditorSnapshot,
 	getSnapshot,
@@ -10,7 +9,8 @@ import {
 } from '@tldraw/tldraw';
 import '@tldraw/tldraw/tldraw.css';
 import { debounce } from 'lodash';
-
+import { loadProject } from '../_utils/storage';
+import { useRouter } from 'next/navigation';
 import { api } from '../_utils/api';
 
 export default function EditorContent({
@@ -19,6 +19,18 @@ export default function EditorContent({
 	data: TLEditorSnapshot | null;
 }) {
 	const editor = useEditor();
+	const router = useRouter();
+	const [projectName, setProjectName] = useState<string | null>(null);
+
+	useEffect(() => {
+		if (typeof window !== 'undefined') {
+			const params = new URLSearchParams(window.location.search);
+			const project = params.get('project');
+			if (project) {
+				setProjectName(decodeURIComponent(project));
+			}
+		}
+	}, []);
 
 	const mutation = api.setData.useMutation();
 
@@ -27,9 +39,17 @@ export default function EditorContent({
 	}, 500);
 
 	const loadData = () => {
-		if (!editor || !data) return;
+		if (!editor) return;
+
 		try {
-			loadSnapshot(editor.store, data);
+			if (projectName) {
+				const snapshot = loadProject(projectName);
+				if (snapshot) {
+					loadSnapshot(editor.store, snapshot);
+				}
+			} else if (data) {
+				loadSnapshot(editor.store, data);
+			}
 		} catch (error) {
 			alert(`Error loading snapshot:\n${error}`);
 		}
@@ -37,6 +57,7 @@ export default function EditorContent({
 
 	const saveData = () => {
 		if (!editor) return;
+
 		try {
 			const snapshot = getSnapshot(editor.store);
 			debouncedSave(snapshot);
@@ -46,8 +67,10 @@ export default function EditorContent({
 	};
 
 	useEffect(() => {
-		loadData();
-	}, [editor, data]);
+		if (projectName) {
+			loadData();
+		}
+	}, [projectName, editor]);
 
 	useEffect(() => {
 		if (!editor) return;

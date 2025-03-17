@@ -1,21 +1,35 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
 import { Button } from '@/components/ui/button';
+import { getLastEditedProject } from '@/app/_utils/storage';
 
 export default function OpenButton() {
+	const [lastProjectName, setLastProjectName] = useState<string | null>(null);
 	const [loading, setLoading] = useState(false);
+
+	useEffect(() => {
+		const lastEditedProject = getLastEditedProject();
+		setLastProjectName(lastEditedProject);
+	}, []);
 
 	const handleClick = () => {
 		setLoading(true);
 	};
 
 	return (
-		<Link href='/editor' className='z-10 h-full max-w-fit'>
+		<Link
+			href={
+				lastProjectName
+					? `/editor?project=${encodeURIComponent(lastProjectName)}`
+					: '/editor'
+			}
+			className='z-10 h-full max-w-fit'
+		>
 			<Button
 				onClick={handleClick}
 				disabled={loading}

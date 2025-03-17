@@ -6,6 +6,8 @@ import OpenButton from '@/app/_components/OpenButton';
 import Link from 'next/link';
 
 import ThemeToggle from '@/components/ThemeToggle';
+import { Button } from '@/components/ui/button';
+import GalleryButton from './_components/GalleryButton';
 
 export default function HomePage() {
 	return (
@@ -19,6 +21,7 @@ export default function HomePage() {
 						<p className='text-3xl font-bold dark:text-gray-200'>Tldraw</p>
 					</Link>
 					<div className='flex items-center gap-2'>
+						<GalleryButton />
 						<OpenButton />
 						<ThemeToggle />
 					</div>
