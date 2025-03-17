@@ -3,7 +3,6 @@
 import GalleryContent from '@/app/_components/GalleryContent';
 import BackButton from '../_components/BackButton';
 import OpenButton from '../_components/OpenButton';
-import ThemeToggle from '@/components/ThemeToggle';
 import Header from '../_components/Header';
 
 export default function GalleryPage() {
@@ -17,7 +16,6 @@ export default function GalleryPage() {
 					<BackButton />
 					<div className='flex items-center gap-2'>
 						<OpenButton />
-						<ThemeToggle />
 					</div>
 				</nav>
 			</Header>

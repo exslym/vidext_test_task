@@ -5,7 +5,6 @@ import Hero from '@/app/_components/Hero';
 import OpenButton from '@/app/_components/OpenButton';
 import Link from 'next/link';
 
-import ThemeToggle from '@/components/ThemeToggle';
 import GalleryButton from './_components/GalleryButton';
 
 export default function HomePage() {
@@ -22,7 +21,6 @@ export default function HomePage() {
 					<div className='flex items-center gap-2'>
 						<GalleryButton />
 						<OpenButton />
-						<ThemeToggle />
 					</div>
 				</nav>
 			</Header>

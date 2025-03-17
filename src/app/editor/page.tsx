@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-
 import SaveButton from '@/app/_components/SaveButton';
 import BackButton from '@/app/_components/BackButton';
 import EditorContent from '@/app/_components/EditorContent';
@@ -11,13 +10,9 @@ import Loading from '@/app/_components/Loading';
 import ModifyButton from '@/app/_components/ModifyButton';
 import RecognizeButton from '@/app/_components/RecognizeButton';
 import { api } from '@/app/_utils/api';
-import { applyTheme } from '@/app/_utils/applyTheme';
 import { TLEditorSnapshot } from '@tldraw/tldraw';
 import '@tldraw/tldraw/tldraw.css';
-import { useTheme } from 'next-themes';
 import dynamic from 'next/dynamic';
-
-import ThemeToggle from '@/components/ThemeToggle';
 import GalleryButton from '../_components/GalleryButton';
 
 const Tldraw = dynamic(async () => (await import('@tldraw/tldraw')).Tldraw, {
@@ -27,17 +22,8 @@ const Tldraw = dynamic(async () => (await import('@tldraw/tldraw')).Tldraw, {
 export default function EditorPage() {
 	const { data, isLoading, isError, error } =
 		api.getData.useQuery<TLEditorSnapshot>();
-	const { resolvedTheme } = useTheme();
 	const tldrawContainerRef = useRef<HTMLDivElement>(null);
 	const [projectName, setProjectName] = useState<string | null>(null);
-
-	useEffect(() => {
-		if (!tldrawContainerRef.current || !tldrawContainerRef.current.firstChild)
-			return;
-		const theme = resolvedTheme === 'dark' ? 'dark' : 'light';
-		const tldraw = tldrawContainerRef.current.firstChild as HTMLElement;
-		applyTheme(theme, tldraw);
-	}, [resolvedTheme]);
 
 	useEffect(() => {
 		if (typeof window !== 'undefined') {
@@ -75,7 +61,6 @@ export default function EditorPage() {
 
 						<div className='flex items-center gap-2'>
 							<SaveButton projectName={projectName} />
-							<ThemeToggle />
 						</div>
 					</nav>
 				</Header>
