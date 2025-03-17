@@ -11,6 +11,7 @@ import '@tldraw/tldraw/tldraw.css';
 import { debounce } from 'lodash';
 import { loadProject } from '../_utils/storage';
 import { api } from '../_utils/api';
+import { toast } from 'react-hot-toast';
 
 export default function EditorContent({
 	data,
@@ -49,7 +50,7 @@ export default function EditorContent({
 				loadSnapshot(editor.store, data);
 			}
 		} catch (error) {
-			alert(`Error loading snapshot:\n${error}`);
+			toast.error(`Error loading snapshot:\n${error}`);
 		}
 	};
 
@@ -60,7 +61,7 @@ export default function EditorContent({
 			const snapshot = getSnapshot(editor.store);
 			debouncedSave(snapshot);
 		} catch (error) {
-			alert(`Error saving snapshot:\n${error}`);
+			toast.error(`Error saving snapshot:\n${error}`);
 		}
 	};
 

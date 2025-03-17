@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import { Toaster } from 'react-hot-toast';
 
 import { ThemeProvider } from '@/components/ThemesProvider';
 
@@ -26,7 +27,29 @@ export default function RootLayout({
 		<html lang='en' suppressHydrationWarning>
 			<body className={inter.className}>
 				<ThemeProvider>
-					<TrpcProvider>{children}</TrpcProvider>
+					<TrpcProvider>
+						{children}
+						<Toaster
+							position='bottom-right'
+							toastOptions={{
+								className: 'toaster',
+								duration: 3000,
+								removeDelay: 1000,
+								success: {
+									iconTheme: {
+										primary: 'green',
+										secondary: 'white',
+									},
+								},
+								error: {
+									iconTheme: {
+										primary: 'red',
+										secondary: 'white',
+									},
+								},
+							}}
+						/>
+					</TrpcProvider>
 				</ThemeProvider>
 			</body>
 		</html>

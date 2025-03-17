@@ -2,6 +2,7 @@ import { useEditor } from '@tldraw/tldraw';
 import { getSnapshot } from '@tldraw/tldraw';
 import { saveProject, getProjects } from './storage';
 import { useRouter } from 'next/navigation';
+import { toast } from 'react-hot-toast';
 
 export async function handleSave(
 	editor: ReturnType<typeof useEditor>,
@@ -10,7 +11,10 @@ export async function handleSave(
 	setInputValue: (value: string) => void,
 	router: ReturnType<typeof useRouter>
 ) {
-	if (!editor) return;
+	if (!editor) {
+		toast.error('Editor is not initialized.');
+		return;
+	}
 
 	try {
 		const snapshot = getSnapshot(editor.store);
@@ -38,13 +42,13 @@ export async function handleSave(
 			: undefined;
 
 		saveProject(finalName, snapshot, svgString);
-
 		localStorage.setItem('lastEditedProject', finalName);
-
 		router.replace(`/editor?project=${encodeURIComponent(finalName)}`);
 
 		setInputValue(finalName);
+
+		toast.success('Project saved successfully!');
 	} catch (error) {
-		alert(`Error saving project:\n${error}`);
+		toast.error(`Error saving project: ${error}`);
 	}
 }

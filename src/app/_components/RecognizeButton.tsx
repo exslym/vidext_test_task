@@ -4,6 +4,7 @@ import { api } from '@/app/_utils/api';
 import { handleRecognition } from '@/app/_utils/handleRecognition';
 import { useEditor } from '@tldraw/tldraw';
 import { Loader2 } from 'lucide-react';
+import { toast } from 'react-hot-toast';
 
 import { Button } from '@/components/ui/button';
 
@@ -16,9 +17,9 @@ export default function RecognizeButton() {
 			await handleRecognition(editor, mutation);
 		} catch (error) {
 			if (error instanceof Error) {
-				alert(error.message);
+				toast.error(error.message);
 			} else {
-				alert('An unknown error occurred.');
+				toast.error('An unknown error occurred.');
 			}
 		}
 	};
