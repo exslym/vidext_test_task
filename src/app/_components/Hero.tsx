@@ -27,7 +27,7 @@ export default function Hero() {
 				))}
 			</div>
 
-			<OpenButton />
+			<OpenButton classes={'hero-button'} />
 		</section>
 	);
 }

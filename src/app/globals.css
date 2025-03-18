@@ -72,6 +72,9 @@
 	.svg-container svg {
 		@apply max-h-36 max-w-full;
 	}
+	.hero-button p {
+		@apply ml-2 block;
+	}
 	.toaster {
 		@apply !rounded-lg !bg-gray-500 !px-5 !py-3 text-sm !text-white;
 	}

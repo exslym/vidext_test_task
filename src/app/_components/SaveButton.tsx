@@ -1,12 +1,12 @@
 'use client';
 
+import { useEffect, useState } from 'react';
+import { handleSave } from '@/app/_utils/handleSave';
 import { useEditor } from '@tldraw/tldraw';
-import { useState, useEffect } from 'react';
+import { Save } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { useRouter } from 'next/navigation';
-import { Save } from 'lucide-react';
-import { handleSave } from '@/app/_utils/handleSave';
 
 interface SaveButtonProps {
 	projectName?: string | null;
@@ -37,7 +37,7 @@ export default function SaveButton({ projectName }: SaveButtonProps) {
 					setInputValue(e.target.value);
 				}}
 				onFocus={handleSelectText}
-				className='border-lightgray h-10 bg-background font-medium leading-none shadow-none dark:border-none dark:bg-gray-500 dark:placeholder-gray-300'
+				className='border-lightgray h-10 max-w-40 bg-background text-sm font-medium leading-none shadow-none dark:border-none dark:bg-gray-500 dark:placeholder-gray-300 sm:max-w-24 md:max-w-36 lg:max-w-48'
 			/>
 
 			<Button
@@ -50,11 +50,11 @@ export default function SaveButton({ projectName }: SaveButtonProps) {
 						router
 					)
 				}
-				className='rounded-lg bg-gray-secondary px-4 py-2 text-center shadow-sm hover:bg-gray-600 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-500'
+				className='gap-0 rounded-lg bg-gray-secondary px-3 py-2 text-center shadow-sm hover:bg-gray-600 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-500 lg:px-4'
 				size='lg'
 			>
 				<Save size={16} />
-				Save
+				<p className='ml-0 hidden lg:ml-2 lg:block'>Save</p>
 			</Button>
 		</div>
 	);
