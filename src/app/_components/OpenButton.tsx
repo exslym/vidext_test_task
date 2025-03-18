@@ -6,7 +6,7 @@ import { Pencil } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 
-export default function OpenButton({ classes }: { classes: string }) {
+export default function OpenButton({ classes }: { classes?: string }) {
 	const [lastProjectName, setLastProjectName] = useState<string | null>(null);
 	const [loading, setLoading] = useState(false);
 
