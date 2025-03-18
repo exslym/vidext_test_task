@@ -8,7 +8,7 @@ import Header from '@/components/header/Header';
 
 export default function GalleryPage() {
 	return (
-		<div className='flex h-screen w-full flex-col'>
+		<div className='flex min-h-screen w-full flex-col'>
 			<Header>
 				<nav
 					aria-label='Gallery navigation'
@@ -23,7 +23,7 @@ export default function GalleryPage() {
 					</Link>
 				</nav>
 			</Header>
-			<main className='flex h-full w-full items-start justify-center bg-white px-4 dark:bg-dark-secondary dark:text-white'>
+			<main className='flex flex-1 items-start justify-center bg-white px-4 dark:bg-dark-secondary dark:text-white'>
 				<GalleryContent />
 			</main>
 		</div>

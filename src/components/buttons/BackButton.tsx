@@ -10,7 +10,7 @@ export default function BackButton() {
 			size='lg'
 		>
 			<House size={16} />
-			<p className='ml-0 hidden lg:ml-2 lg:block'>Back to Home</p>
+			<p className='ml-0 hidden lg:ml-2 lg:block'>Home</p>
 		</Button>
 	);
 }

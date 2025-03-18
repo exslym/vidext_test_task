@@ -29,7 +29,7 @@ export default function Selector({ onSortChange }: SelectorProps) {
 	return (
 		<div className='flex w-full max-w-44 items-center justify-center gap-2'>
 			<Select value={sortType} onValueChange={handleValueChange}>
-				<SelectTrigger className='w-full'>
+				<SelectTrigger className='w-full border-gray-300 dark:border-gray-600'>
 					<SelectValue placeholder='Sort by Last Edited' />
 				</SelectTrigger>
 				<SelectContent>

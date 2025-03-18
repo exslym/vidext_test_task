@@ -21,10 +21,7 @@ export default function SaveButton({ projectName }: SaveButtonProps) {
 	const router = useRouter();
 
 	useEffect(() => {
-		if (projectName) {
-			setInputValue(projectName);
-			setCurrentProjectName(projectName);
-		}
+		setInputValue(projectName ?? '');
 	}, [projectName]);
 
 	const handleSelectText = (event: React.FocusEvent<HTMLInputElement>) => {

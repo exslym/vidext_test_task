@@ -9,6 +9,7 @@ import Link from 'next/link';
 import BackButton from '@/components/buttons/BackButton';
 import GalleryButton from '@/components/buttons/GalleryButton';
 import ModifyButton from '@/components/buttons/ModifyButton';
+import NewProjectButtonInsideEditor from '@/components/buttons/NewProjectButtonInsideEditor';
 import RecognizeButton from '@/components/buttons/RecognizeButton';
 import SaveButton from '@/components/buttons/SaveButton';
 import Error from '@/components/error/Error';
@@ -34,6 +35,11 @@ export default function EditorPage() {
 		}
 	}, []);
 
+	const resetProjectName = () => {
+		setProjectName(null);
+		setTimeout(() => setProjectName(''), 0);
+	};
+
 	if (isLoading) return <Loading />;
 	if (isError) return <Error message={error?.message} />;
 
@@ -56,6 +62,10 @@ export default function EditorPage() {
 							<Link href='/gallery' className='z-10 max-w-fit'>
 								<GalleryButton />
 							</Link>
+
+							<NewProjectButtonInsideEditor
+								onResetProjectName={resetProjectName}
+							/>
 						</div>
 
 						<div className='absolute right-2 top-16 flex flex-col-reverse gap-2 sm:right-1/2 sm:top-2 sm:translate-x-1/2 sm:flex-row'>
