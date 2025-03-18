@@ -1,7 +1,8 @@
 import { useState } from 'react';
+import { type ShapeType } from '@/constants/shapes';
 import { api } from '@/lib/api';
 
-export function useApiTest() {
+export const useApiTest = () => {
 	const [dataResult, setDataResult] = useState<Record<string, unknown> | null>(
 		null
 	);
@@ -11,7 +12,6 @@ export function useApiTest() {
 	> | null>(null);
 	const [recognitionResult, setRecognitionResult] = useState('');
 	const [error, setError] = useState('');
-	const [showData, setShowData] = useState(false);
 
 	const getDataQuery = api.getData.useQuery(undefined, { enabled: false });
 	const setDataMutation = api.setData.useMutation();
@@ -19,13 +19,8 @@ export function useApiTest() {
 	const recognizeShapeTestMutation = api.recognizeShapeTest.useMutation();
 
 	const handleGetData = async () => {
-		try {
-			const result = await getDataQuery.refetch();
-			setDataResult(result.data ?? null);
-			setShowData(true);
-		} catch (err: any) {
-			setError(err.message);
-		}
+		const result = await getDataQuery.refetch();
+		setDataResult(result.data ?? null);
 	};
 
 	const handleSetData = () => {
@@ -48,9 +43,9 @@ export function useApiTest() {
 		});
 	};
 
-	const handleRecognizeShapeTest = () => {
+	const handleRecognizeShapeTest = (shape: ShapeType = 'ellipse') => {
 		recognizeShapeTestMutation.mutate(
-			{ shape: 'ellipse' },
+			{ shape },
 			{
 				onSuccess: data => setRecognitionResult(data.shape),
 				onError: err => setError(err.message),
@@ -63,11 +58,9 @@ export function useApiTest() {
 		setDataResponse,
 		recognitionResult,
 		error,
-		showData,
-		setShowData,
 		handleGetData,
 		handleSetData,
 		handleDeleteData,
 		handleRecognizeShapeTest,
 	};
-}
+};
