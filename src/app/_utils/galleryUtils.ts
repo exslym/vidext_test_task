@@ -1,6 +1,6 @@
-import { getProjects, getPreviews, deleteProject } from './storage';
+import { deleteProject, getPreviews, getProjects } from '@/app/_utils/storage';
+import { Previews, ProjectMetadata, Projects } from '@/app/_utils/types';
 import { format, isValid } from 'date-fns';
-import { Projects, Previews, ProjectMetadata } from './types';
 
 export function handleDelete(
 	name: string,

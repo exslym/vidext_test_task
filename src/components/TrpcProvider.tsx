@@ -1,11 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-
+import { api } from '@/app/_utils/api';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { httpBatchLink } from '@trpc/client';
-
-import { api } from './api';
 
 export default function TrpcProvider({
 	children,

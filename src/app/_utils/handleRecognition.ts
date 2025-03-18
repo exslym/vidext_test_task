@@ -1,9 +1,8 @@
+import { toast } from 'react-hot-toast';
+import { renderSvgToCanvas } from '@/app/_utils/renderSvgToCanvas';
+import { svgToBase64 } from '@/app/_utils/svgToBase64';
 import { UseMutationResult } from '@tanstack/react-query';
 import { useEditor } from '@tldraw/tldraw';
-
-import { renderSvgToCanvas } from './renderSvgToCanvas';
-import { svgToBase64 } from './svgToBase64';
-import { toast } from 'react-hot-toast';
 
 type RecognizeShapeMutation = UseMutationResult<
 	{ shape?: string },

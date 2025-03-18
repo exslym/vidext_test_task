@@ -1,11 +1,9 @@
+import { Toaster } from 'react-hot-toast';
+import '@/app/globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import { Toaster } from 'react-hot-toast';
-
 import { ThemeProvider } from '@/components/ThemesProvider';
-
-import TrpcProvider from './_utils/TrpcProvider';
-import './globals.css';
+import TrpcProvider from '@/components/TrpcProvider';
 
 const inter = Inter({
 	subsets: ['latin'],

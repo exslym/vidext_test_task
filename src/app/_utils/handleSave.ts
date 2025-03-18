@@ -1,8 +1,8 @@
+import { toast } from 'react-hot-toast';
+import { getProjects, saveProject } from '@/app/_utils/storage';
 import { useEditor } from '@tldraw/tldraw';
 import { getSnapshot } from '@tldraw/tldraw';
-import { saveProject, getProjects } from './storage';
 import { useRouter } from 'next/navigation';
-import { toast } from 'react-hot-toast';
 
 export async function handleSave(
 	editor: ReturnType<typeof useEditor>,

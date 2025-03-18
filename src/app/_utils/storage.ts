@@ -1,6 +1,6 @@
-import { TLEditorSnapshot } from '@tldraw/tldraw';
-import { Projects, Previews } from './types';
 import { toast } from 'react-hot-toast';
+import { Previews, Projects } from '@/app/_utils/types';
+import { TLEditorSnapshot } from '@tldraw/tldraw';
 
 const STORAGE_KEY = 'tldraw_projects';
 const PREVIEW_STORAGE_KEY = 'tldraw_previews';

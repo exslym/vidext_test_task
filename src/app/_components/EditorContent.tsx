@@ -1,6 +1,9 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { toast } from 'react-hot-toast';
+import { api } from '@/app/_utils/api';
+import { loadProject } from '@/app/_utils/storage';
 import {
 	TLEditorSnapshot,
 	getSnapshot,
@@ -9,9 +12,6 @@ import {
 } from '@tldraw/tldraw';
 import '@tldraw/tldraw/tldraw.css';
 import { debounce } from 'lodash';
-import { loadProject } from '../_utils/storage';
-import { api } from '../_utils/api';
-import { toast } from 'react-hot-toast';
 
 export default function EditorContent({
 	data,
