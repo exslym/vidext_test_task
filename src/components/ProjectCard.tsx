@@ -34,7 +34,7 @@ export default function ProjectCard({
 							dangerouslySetInnerHTML={{ __html: preview }}
 						></div>
 					) : (
-						<div className='flex h-full w-full items-center justify-center text-gray-400 dark:text-gray-400'>
+						<div className='flex h-36 w-full items-center justify-center text-gray-400 dark:text-gray-400'>
 							<span>No preview available</span>
 						</div>
 					)}

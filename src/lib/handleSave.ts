@@ -4,6 +4,37 @@ import { getSnapshot } from '@tldraw/tldraw';
 import { useRouter } from 'next/navigation';
 import { getProjects, saveProject } from '@/lib/storage';
 
+function generateUniqueName(
+	baseName: string,
+	projects: Record<string, unknown>
+): string {
+	let name = baseName;
+	let counter = 1;
+	const nameRegex = /(.*?)(\s\((\d+)\))?$/;
+
+	const match = baseName.match(nameRegex);
+	const originalBaseName = match ? match[1] : baseName;
+
+	const existingNumbers = Object.keys(projects)
+		.map(project => {
+			const projectMatch = project.match(
+				new RegExp(`^${originalBaseName}\\s\\((\\d+)\\)$`)
+			);
+			return projectMatch ? parseInt(projectMatch[1], 10) : null;
+		})
+		.filter((num): num is number => num !== null);
+
+	if (!projects[originalBaseName]) {
+		return originalBaseName;
+	}
+
+	while (existingNumbers.includes(counter)) {
+		counter++;
+	}
+
+	return `${originalBaseName} (${counter})`;
+}
+
 export async function handleSave(
 	editor: ReturnType<typeof useEditor>,
 	inputValue: string,
@@ -22,17 +53,17 @@ export async function handleSave(
 		const defaultName = `untitled-${new Date()
 			.toISOString()
 			.replace(/[:.]/g, '-')
-			.slice(0, -5)}`; // untitled-YYYY-MM-DDTHH-mm-ss
+			.slice(0, -5)}`;
 
-		let finalName = inputValue.trim() || defaultName;
+		const inputName = inputValue.trim() || defaultName;
 
 		const projects = getProjects();
-		if (finalName !== projectName && projects[finalName]) {
-			let counter = 1;
-			while (projects[finalName]) {
-				finalName = `${inputValue.trim()} (${counter})`;
-				counter++;
-			}
+		let finalName: string;
+
+		if (projectName === inputName) {
+			finalName = projectName;
+		} else {
+			finalName = generateUniqueName(inputName, projects);
 		}
 
 		const shapes = editor.getCurrentPageShapes();

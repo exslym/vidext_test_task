@@ -15,16 +15,33 @@ interface SaveButtonProps {
 export default function SaveButton({ projectName }: SaveButtonProps) {
 	const editor = useEditor();
 	const [inputValue, setInputValue] = useState('');
+	const [currentProjectName, setCurrentProjectName] = useState<string | null>(
+		projectName || null
+	);
 	const router = useRouter();
 
 	useEffect(() => {
 		if (projectName) {
 			setInputValue(projectName);
+			setCurrentProjectName(projectName);
 		}
 	}, [projectName]);
 
 	const handleSelectText = (event: React.FocusEvent<HTMLInputElement>) => {
 		event.target.select();
+	};
+
+	const onSave = async () => {
+		await handleSave(
+			editor,
+			inputValue,
+			currentProjectName,
+			(newName: string) => {
+				setInputValue(newName);
+				setCurrentProjectName(newName);
+			},
+			router
+		);
 	};
 
 	return (
@@ -41,15 +58,7 @@ export default function SaveButton({ projectName }: SaveButtonProps) {
 			/>
 
 			<Button
-				onClick={() =>
-					handleSave(
-						editor,
-						inputValue,
-						projectName ?? null,
-						setInputValue,
-						router
-					)
-				}
+				onClick={onSave}
 				className='gap-0 rounded-lg bg-gray-secondary px-3 py-2 text-center shadow-sm hover:bg-gray-600 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-500 lg:px-4'
 				size='lg'
 			>
