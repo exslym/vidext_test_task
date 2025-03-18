@@ -1,7 +1,7 @@
 import { Toaster } from 'react-hot-toast';
 import '@/app/globals.css';
-import { ThemeProvider } from '@/app/providers/ThemesProvider';
-import TrpcProvider from '@/app/providers/TrpcProvider';
+import { ThemeProvider } from '@/providers/ThemesProvider';
+import TrpcProvider from '@/providers/TrpcProvider';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
