@@ -5,14 +5,14 @@ import EditorContent from '@/app/_components/EditorContent';
 import { TLEditorSnapshot } from '@tldraw/tldraw';
 import '@tldraw/tldraw/tldraw.css';
 import dynamic from 'next/dynamic';
-import BackButton from '@/components/BackButton';
-import Error from '@/components/Error';
-import GalleryButton from '@/components/GalleryButton';
-import Header from '@/components/Header';
-import Loading from '@/components/Loading';
-import ModifyButton from '@/components/ModifyButton';
-import RecognizeButton from '@/components/RecognizeButton';
-import SaveButton from '@/components/SaveButton';
+import BackButton from '@/components/buttons/BackButton';
+import GalleryButton from '@/components/buttons/GalleryButton';
+import ModifyButton from '@/components/buttons/ModifyButton';
+import RecognizeButton from '@/components/buttons/RecognizeButton';
+import SaveButton from '@/components/buttons/SaveButton';
+import Error from '@/components/error/Error';
+import Header from '@/components/header/Header';
+import Loading from '@/components/loading/Loading';
 import { api } from '@/lib/api';
 
 const Tldraw = dynamic(async () => (await import('@tldraw/tldraw')).Tldraw, {

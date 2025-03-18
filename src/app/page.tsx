@@ -2,9 +2,9 @@
 
 import Hero from '@/app/_components/Hero';
 import Link from 'next/link';
-import GalleryButton from '@/components/GalleryButton';
-import Header from '@/components/Header';
-import NewProjectButton from '@/components/NewProjectButton';
+import GalleryButton from '@/components/buttons/GalleryButton';
+import NewProjectButton from '@/components/buttons/NewProjectButton';
+import Header from '@/components/header/Header';
 
 export default function HomePage() {
 	return (

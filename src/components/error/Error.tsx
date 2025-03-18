@@ -1,6 +1,6 @@
 'use client';
 
-import BackButton from '@/components/BackButton';
+import BackButton from '@/components/buttons/BackButton';
 
 export default function Error({ message }: { message?: string }) {
 	return (

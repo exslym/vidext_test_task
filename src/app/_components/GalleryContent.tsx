@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from 'react';
 import { Previews, Projects } from '@/types/types';
-import ProjectCard from '@/components/ProjectCard';
-import Selector from '@/components/Selector';
+import ProjectCard from '@/components/cards/ProjectCard';
+import Selector from '@/components/selector/Selector';
 import { handleDelete, sortProjects } from '@/lib/galleryUtils';
 import { getPreviews, getProjects } from '@/lib/storage';
 

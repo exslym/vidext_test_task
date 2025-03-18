@@ -1,9 +1,9 @@
 'use client';
 
 import GalleryContent from '@/app/_components/GalleryContent';
-import BackButton from '@/components/BackButton';
-import Header from '@/components/Header';
-import NewProjectButton from '@/components/NewProjectButton';
+import BackButton from '@/components/buttons/BackButton';
+import NewProjectButton from '@/components/buttons/NewProjectButton';
+import Header from '@/components/header/Header';
 
 export default function GalleryPage() {
 	return (
