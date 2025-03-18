@@ -2,7 +2,7 @@ import { LucideIcon } from 'lucide-react';
 import {
 	BrainCircuit,
 	Download,
-	Palette,
+	GalleryThumbnails,
 	Pencil,
 	Save,
 	Shapes,
@@ -24,9 +24,9 @@ export const features: Feature[] = [
 	},
 	{
 		icon: Save,
-		title: 'Auto Save',
+		title: 'Save Projects',
 		description:
-			'Your sketches are saved automatically, so you never lose your progress.',
+			'Save your projects to the gallery for easy access and future editing.',
 		color: '#facc15',
 	},
 	{
@@ -37,10 +37,10 @@ export const features: Feature[] = [
 		color: '#a855f7',
 	},
 	{
-		icon: Palette,
-		title: 'Clean & User-friendly Design',
+		icon: GalleryThumbnails,
+		title: 'Project Gallery',
 		description:
-			'Minimalist UI for distraction-free sketching and better user experience.',
+			'Organize your saved projects in the gallery, preview them, and manage them effortlessly.',
 		color: '#ef4444',
 	},
 	{

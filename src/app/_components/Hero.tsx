@@ -1,8 +1,9 @@
 'use client';
 
 import FeatureCard from '@/app/_components/FeatureCard';
+import GalleryButton from '@/app/_components/GalleryButton';
+import OpenButton from '@/app/_components/OpenButton';
 import { features } from '@/constants/features';
-import OpenButton from './OpenButton';
 
 export default function Hero() {
 	return (
@@ -27,7 +28,10 @@ export default function Hero() {
 				))}
 			</div>
 
-			<OpenButton classes={'hero-button'} />
+			<div className='flex gap-2'>
+				<GalleryButton classes={'hero-gallery-button'} />
+				<OpenButton classes={'hero-editor-button'} />
+			</div>
 		</section>
 	);
 }

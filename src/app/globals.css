@@ -72,7 +72,8 @@
 	.svg-container svg {
 		@apply max-h-36 max-w-full;
 	}
-	.hero-button p {
+	.hero-editor-button p,
+	.hero-gallery-button p {
 		@apply ml-2 block;
 	}
 	.toaster {
