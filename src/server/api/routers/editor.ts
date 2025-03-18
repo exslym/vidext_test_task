@@ -89,4 +89,16 @@ export const editorRouter = router({
 
 			return { shape: recognizedShape };
 		}),
+
+	/* for api test */
+	recognizeShapeTest: publicProcedure
+		.input(z.object({ shape: z.enum(shapeSequence) }))
+		.mutation(({ input }) => {
+			return { shape: input.shape };
+		}),
+
+	deleteData: publicProcedure.mutation(() => {
+		editorData = {};
+		return { success: true };
+	}),
 });
