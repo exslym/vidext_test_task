@@ -1,6 +1,6 @@
 import { type ShapeType, shapeSequence } from '@/constants/shapes';
+import { publicProcedure, router } from '@/server/api/trpc';
 import { z } from 'zod';
-import { publicProcedure, router } from '../trpc';
 
 const openrouterai = process.env.NEXT_OPENROUTER_API_KEY;
 let editorData = {};
