@@ -54,7 +54,7 @@ export default function SaveButton({ projectName }: SaveButtonProps) {
 					setInputValue(e.target.value);
 				}}
 				onFocus={handleSelectText}
-				className='border-lightgray h-10 max-w-40 bg-background text-sm font-medium leading-none shadow-none dark:border-none dark:bg-gray-500 dark:placeholder-gray-300 sm:max-w-24 md:max-w-36 lg:max-w-48'
+				className='h-10 max-w-40 border-gray-300 bg-background text-sm font-medium leading-none shadow-none dark:border-none dark:bg-gray-500 dark:placeholder-gray-300 sm:max-w-24 md:max-w-36 lg:max-w-48'
 			/>
 
 			<Button
