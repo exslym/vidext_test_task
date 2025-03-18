@@ -1,11 +1,11 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { getProjects, getPreviews } from '@/app/_utils/storage';
-import Selector from '@/app/_components/Selector';
-import { handleDelete, sortProjects } from '@/app/_utils/galleryUtils';
-import { Projects, Previews } from '@/app/_utils/types';
-import ProjectCard from '@/app/_components/ProjectCard';
+import { Previews, Projects } from '@/types/types';
+import ProjectCard from '@/components/ProjectCard';
+import Selector from '@/components/Selector';
+import { handleDelete, sortProjects } from '@/lib/galleryUtils';
+import { getPreviews, getProjects } from '@/lib/storage';
 
 export default function GalleryContent() {
 	const [projects, setProjects] = useState<Projects>({});
@@ -37,7 +37,7 @@ export default function GalleryContent() {
 
 					<Selector onSortChange={setSortType} />
 
-					<ul className='grid-cols-auto-fit-238 grid w-full justify-center gap-6'>
+					<ul className='grid w-full grid-cols-auto-fit-238 justify-center gap-6'>
 						{sortedProjects.map(([name, data]) => (
 							<ProjectCard
 								key={name}

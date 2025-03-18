@@ -2,7 +2,7 @@
 
 import { useEditor } from '@tldraw/tldraw';
 import { Button } from '@/components/ui/button';
-import { modifyShape } from '@/app/_utils/modifyShape';
+import { modifyShape } from '@/lib/modifyShape';
 
 export default function ModifyButton() {
 	const editor = useEditor();

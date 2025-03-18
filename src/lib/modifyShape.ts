@@ -1,6 +1,6 @@
+import { toast } from 'react-hot-toast';
 import { shapeSequence } from '@/constants/shapes';
 import { TLGeoShape, TLShapeId, useEditor } from '@tldraw/tldraw';
-import { toast } from 'react-hot-toast';
 
 export function modifyShape(editor: ReturnType<typeof useEditor>) {
 	if (!editor) {

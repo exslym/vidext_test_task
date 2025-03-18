@@ -1,10 +1,10 @@
 'use client';
 
-import Link from 'next/link';
+import { ProjectMetadata } from '@/types/types';
 import { Trash2 } from 'lucide-react';
+import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { formatDate } from '@/app/_utils/galleryUtils';
-import { ProjectMetadata } from '@/app/_utils/types';
+import { formatDate } from '@/lib/galleryUtils';
 
 interface ProjectCardProps {
 	name: string;

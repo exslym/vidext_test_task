@@ -1,11 +1,10 @@
 'use client';
 
-import Header from '@/app/_components/Header';
 import Hero from '@/app/_components/Hero';
-import OpenButton from '@/app/_components/OpenButton';
 import Link from 'next/link';
-
-import GalleryButton from './_components/GalleryButton';
+import GalleryButton from '@/components/GalleryButton';
+import Header from '@/components/Header';
+import OpenButton from '@/components/OpenButton';
 
 export default function HomePage() {
 	return (

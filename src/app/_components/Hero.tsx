@@ -1,9 +1,9 @@
 'use client';
 
-import FeatureCard from '@/app/_components/FeatureCard';
-import GalleryButton from '@/app/_components/GalleryButton';
-import OpenButton from '@/app/_components/OpenButton';
 import { features } from '@/constants/features';
+import FeatureCard from '@/components/FeatureCard';
+import GalleryButton from '@/components/GalleryButton';
+import OpenButton from '@/components/OpenButton';
 
 export default function Hero() {
 	return (

@@ -1,10 +1,10 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { getLastEditedProject } from '@/app/_utils/storage';
 import { Pencil } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import { getLastEditedProject } from '@/lib/storage';
 
 export default function OpenButton({ classes }: { classes?: string }) {
 	const [lastProjectName, setLastProjectName] = useState<string | null>(null);

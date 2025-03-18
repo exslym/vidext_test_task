@@ -1,5 +1,5 @@
 import { toast } from 'react-hot-toast';
-import { Previews, Projects } from '@/app/_utils/types';
+import { Previews, Projects } from '@/types/types';
 import { TLEditorSnapshot } from '@tldraw/tldraw';
 
 const STORAGE_KEY = 'tldraw_projects';

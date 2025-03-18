@@ -1,19 +1,19 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import BackButton from '@/app/_components/BackButton';
 import EditorContent from '@/app/_components/EditorContent';
-import Error from '@/app/_components/Error';
-import GalleryButton from '@/app/_components/GalleryButton';
-import Header from '@/app/_components/Header';
-import Loading from '@/app/_components/Loading';
-import ModifyButton from '@/app/_components/ModifyButton';
-import RecognizeButton from '@/app/_components/RecognizeButton';
-import SaveButton from '@/app/_components/SaveButton';
-import { api } from '@/app/_utils/api';
 import { TLEditorSnapshot } from '@tldraw/tldraw';
 import '@tldraw/tldraw/tldraw.css';
 import dynamic from 'next/dynamic';
+import BackButton from '@/components/BackButton';
+import Error from '@/components/Error';
+import GalleryButton from '@/components/GalleryButton';
+import Header from '@/components/Header';
+import Loading from '@/components/Loading';
+import ModifyButton from '@/components/ModifyButton';
+import RecognizeButton from '@/components/RecognizeButton';
+import SaveButton from '@/components/SaveButton';
+import { api } from '@/lib/api';
 
 const Tldraw = dynamic(async () => (await import('@tldraw/tldraw')).Tldraw, {
 	ssr: false,

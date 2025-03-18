@@ -1,12 +1,12 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { handleSave } from '@/app/_utils/handleSave';
 import { useEditor } from '@tldraw/tldraw';
 import { Save } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { handleSave } from '@/lib/handleSave';
 
 interface SaveButtonProps {
 	projectName?: string | null;

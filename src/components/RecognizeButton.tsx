@@ -1,12 +1,11 @@
 'use client';
 
-import { api } from '@/app/_utils/api';
-import { handleRecognition } from '@/app/_utils/handleRecognition';
+import { toast } from 'react-hot-toast';
 import { useEditor } from '@tldraw/tldraw';
 import { Loader2 } from 'lucide-react';
-import { toast } from 'react-hot-toast';
-
 import { Button } from '@/components/ui/button';
+import { api } from '@/lib/api';
+import { handleRecognition } from '@/lib/handleRecognition';
 
 export default function RecognizeButton() {
 	const editor = useEditor();

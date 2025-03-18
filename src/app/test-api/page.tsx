@@ -6,7 +6,7 @@ export default function TestAPI() {
 	const [response, setResponse] = useState<string | null>(null);
 	const [error, setError] = useState<string | null>(null);
 
-	const handleRequest = async (method: string, params?: any) => {
+	const handleRequest = async (method: string, params?: unknown) => {
 		try {
 			const res = await fetch('http://localhost:3000/api/trpc', {
 				method: 'POST',
