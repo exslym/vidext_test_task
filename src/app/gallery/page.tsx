@@ -1,6 +1,7 @@
 'use client';
 
 import GalleryContent from '@/app/_components/GalleryContent';
+import Link from 'next/link';
 import BackButton from '@/components/buttons/BackButton';
 import NewProjectButton from '@/components/buttons/NewProjectButton';
 import Header from '@/components/header/Header';
@@ -13,10 +14,13 @@ export default function GalleryPage() {
 					aria-label='Gallery navigation'
 					className='container mx-auto flex items-center justify-between'
 				>
-					<BackButton />
-					<div className='flex items-center gap-2'>
+					<Link href='/' className='z-10 max-w-fit'>
+						<BackButton />
+					</Link>
+
+					<Link href='/editor' className='z-10 max-w-fit'>
 						<NewProjectButton />
-					</div>
+					</Link>
 				</nav>
 			</Header>
 			<main className='flex h-full w-full items-start justify-center bg-white px-4 dark:bg-dark-secondary dark:text-white'>

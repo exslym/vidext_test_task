@@ -22,7 +22,7 @@ export default function ProjectCard({
 	const formattedDate = formatDate(data.updatedAt);
 
 	return (
-		<li className='bg-light relative flex h-auto w-full items-center justify-center truncate rounded-lg border border-gray-100 p-4 text-left text-gray-700 shadow-lg transition-transform hover:scale-105 hover:text-blue-400 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 hover:dark:text-gray-300'>
+		<div className='bg-light relative flex h-auto w-full items-center justify-center truncate rounded-lg border border-gray-100 p-4 text-left text-gray-700 shadow-lg transition-transform hover:scale-105 hover:text-blue-400 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 hover:dark:text-gray-300'>
 			<Link
 				href={`/editor?project=${encodeURIComponent(name)}`}
 				className='flex h-full w-full cursor-pointer flex-col items-start justify-between gap-3'
@@ -54,6 +54,6 @@ export default function ProjectCard({
 			>
 				<Trash2 size={24} />
 			</Button>
-		</li>
+		</div>
 	);
 }

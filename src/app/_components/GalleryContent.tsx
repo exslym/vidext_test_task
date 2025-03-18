@@ -37,7 +37,7 @@ export default function GalleryContent() {
 
 					<Selector onSortChange={setSortType} />
 
-					<ul className='grid w-full grid-cols-auto-fit-238 justify-center gap-6'>
+					<div className='grid w-full grid-cols-auto-fit-238 justify-center gap-6'>
 						{sortedProjects.map(([name, data]) => (
 							<ProjectCard
 								key={name}
@@ -47,7 +47,7 @@ export default function GalleryContent() {
 								onDelete={() => handleDelete(name, setProjects, setPreviews)}
 							/>
 						))}
-					</ul>
+					</div>
 				</div>
 			)}
 		</section>

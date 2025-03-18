@@ -5,6 +5,7 @@ import EditorContent from '@/app/_components/EditorContent';
 import { TLEditorSnapshot } from '@tldraw/tldraw';
 import '@tldraw/tldraw/tldraw.css';
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
 import BackButton from '@/components/buttons/BackButton';
 import GalleryButton from '@/components/buttons/GalleryButton';
 import ModifyButton from '@/components/buttons/ModifyButton';
@@ -29,11 +30,7 @@ export default function EditorPage() {
 		if (typeof window !== 'undefined') {
 			const params = new URLSearchParams(window.location.search);
 			const project = params.get('project');
-			if (project) {
-				setProjectName(decodeURIComponent(project));
-			} else {
-				setProjectName(null);
-			}
+			setProjectName(project ? decodeURIComponent(project) : null);
 		}
 	}, []);
 
@@ -52,8 +49,13 @@ export default function EditorPage() {
 						className='mx-auto flex w-full items-center justify-between'
 					>
 						<div className='flex items-center gap-2'>
-							<BackButton />
-							<GalleryButton />
+							<Link href='/' className='z-10 max-w-fit'>
+								<BackButton />
+							</Link>
+
+							<Link href='/gallery' className='z-10 max-w-fit'>
+								<GalleryButton />
+							</Link>
 						</div>
 
 						<div className='absolute right-2 top-16 flex flex-col-reverse gap-2 sm:right-1/2 sm:top-2 sm:translate-x-1/2 sm:flex-row'>
@@ -61,9 +63,7 @@ export default function EditorPage() {
 							<RecognizeButton />
 						</div>
 
-						<div className='flex items-center gap-2'>
-							<SaveButton projectName={projectName} />
-						</div>
+						<SaveButton projectName={projectName} />
 					</nav>
 				</Header>
 

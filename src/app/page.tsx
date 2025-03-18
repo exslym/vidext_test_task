@@ -17,9 +17,15 @@ export default function HomePage() {
 					<Link href='/'>
 						<p className='text-3xl font-bold dark:text-gray-200'>Tldraw</p>
 					</Link>
+
 					<div className='flex items-center gap-2'>
-						<GalleryButton />
-						<NewProjectButton />
+						<Link href='/gallery' className='z-10 max-w-fit'>
+							<GalleryButton />
+						</Link>
+
+						<Link href='/editor' className='z-10 max-w-fit'>
+							<NewProjectButton />
+						</Link>
 					</div>
 				</nav>
 			</Header>
