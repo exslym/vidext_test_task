@@ -20,7 +20,7 @@ const Tldraw = dynamic(async () => (await import('@tldraw/tldraw')).Tldraw, {
 });
 
 export default function EditorPage() {
-	const { data, isLoading, isError, error } =
+	const { isLoading, isError, error } =
 		api.getData.useQuery<TLEditorSnapshot>();
 	const tldrawContainerRef = useRef<HTMLDivElement>(null);
 	const [projectName, setProjectName] = useState<string | null>(null);
@@ -31,6 +31,8 @@ export default function EditorPage() {
 			const project = params.get('project');
 			if (project) {
 				setProjectName(decodeURIComponent(project));
+			} else {
+				setProjectName(null);
 			}
 		}
 	}, []);
@@ -43,7 +45,7 @@ export default function EditorPage() {
 			ref={tldrawContainerRef}
 			className='bg-light relative flex h-screen w-full dark:bg-dark-secondary'
 		>
-			<Tldraw inferDarkMode persistenceKey='key' className={'pt-14'}>
+			<Tldraw inferDarkMode className={'pt-14'}>
 				<Header classes='absolute top-0'>
 					<nav
 						aria-label='Editor navigation'
@@ -65,7 +67,7 @@ export default function EditorPage() {
 					</nav>
 				</Header>
 
-				<EditorContent data={data} />
+				<EditorContent />
 			</Tldraw>
 		</div>
 	);

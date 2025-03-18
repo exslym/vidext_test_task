@@ -4,7 +4,7 @@ import Hero from '@/app/_components/Hero';
 import Link from 'next/link';
 import GalleryButton from '@/components/GalleryButton';
 import Header from '@/components/Header';
-import OpenButton from '@/components/OpenButton';
+import NewProjectButton from '@/components/NewProjectButton';
 
 export default function HomePage() {
 	return (
@@ -19,7 +19,7 @@ export default function HomePage() {
 					</Link>
 					<div className='flex items-center gap-2'>
 						<GalleryButton />
-						<OpenButton />
+						<NewProjectButton />
 					</div>
 				</nav>
 			</Header>

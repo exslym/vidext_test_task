@@ -8,7 +8,6 @@ function generateUniqueName(
 	baseName: string,
 	projects: Record<string, unknown>
 ): string {
-	let name = baseName;
 	let counter = 1;
 	const nameRegex = /(.*?)(\s\((\d+)\))?$/;
 

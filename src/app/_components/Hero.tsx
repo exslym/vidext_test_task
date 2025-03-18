@@ -3,7 +3,7 @@
 import { features } from '@/constants/features';
 import FeatureCard from '@/components/FeatureCard';
 import GalleryButton from '@/components/GalleryButton';
-import OpenButton from '@/components/OpenButton';
+import NewProjectButton from '@/components/NewProjectButton';
 
 export default function Hero() {
 	return (
@@ -30,7 +30,7 @@ export default function Hero() {
 
 			<div className='flex gap-2'>
 				<GalleryButton classes={'hero-gallery-button'} />
-				<OpenButton classes={'hero-editor-button'} />
+				<NewProjectButton classes={'hero-editor-button'} />
 			</div>
 		</section>
 	);

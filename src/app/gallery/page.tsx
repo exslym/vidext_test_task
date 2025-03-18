@@ -3,7 +3,7 @@
 import GalleryContent from '@/app/_components/GalleryContent';
 import BackButton from '@/components/BackButton';
 import Header from '@/components/Header';
-import OpenButton from '@/components/OpenButton';
+import NewProjectButton from '@/components/NewProjectButton';
 
 export default function GalleryPage() {
 	return (
@@ -15,7 +15,7 @@ export default function GalleryPage() {
 				>
 					<BackButton />
 					<div className='flex items-center gap-2'>
-						<OpenButton />
+						<NewProjectButton />
 					</div>
 				</nav>
 			</Header>
