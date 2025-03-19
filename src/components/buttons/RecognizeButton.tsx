@@ -29,6 +29,7 @@ export default function RecognizeButton() {
 			disabled={mutation.isLoading}
 			className='relative w-44 rounded-lg bg-green-600 px-4 py-2 text-center text-white shadow-sm transition hover:bg-green-500'
 			size={'lg'}
+			aria-label='Recognize drawn shape with AI'
 		>
 			{mutation.isLoading && <Loader2 className='mr-2 h-5 w-5 animate-spin' />}
 			{mutation.isLoading ? 'Recognizing...' : 'Recognize Shape (AI)'}

@@ -14,7 +14,7 @@ export default function HomePage() {
 					aria-label='Main navigation'
 					className='container mx-auto flex items-center justify-between'
 				>
-					<Link href='/'>
+					<Link href='/' aria-label='Go to home page'>
 						<p className='text-3xl font-bold dark:text-gray-200'>Tldraw</p>
 					</Link>
 
@@ -29,7 +29,12 @@ export default function HomePage() {
 					</div>
 				</nav>
 			</Header>
-			<main className='flex flex-1 items-start justify-center bg-white px-4 dark:bg-dark-secondary dark:text-white'>
+
+			<main
+				className='flex flex-1 items-start justify-center bg-white px-4 dark:bg-dark-secondary dark:text-white'
+				role='main'
+				aria-labelledby='hero-heading'
+			>
 				<Hero />
 			</main>
 		</div>

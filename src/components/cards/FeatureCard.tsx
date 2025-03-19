@@ -10,8 +10,14 @@ export default function FeatureCard({
 	description: string;
 }) {
 	return (
-		<div className='bg-light flex flex-col items-center rounded-lg border border-gray-100 p-6 shadow-lg dark:border-gray-600 dark:bg-gray-800'>
-			<div className='rounded-full bg-gray-primary p-3 dark:bg-gray-700'>
+		<div
+			className='bg-light flex flex-col items-center rounded-lg border border-gray-100 p-6 shadow-lg dark:border-gray-600 dark:bg-gray-800'
+			role='listitem'
+		>
+			<div
+				aria-hidden='true'
+				className='rounded-full bg-gray-primary p-3 dark:bg-gray-700'
+			>
 				{icon}
 			</div>
 			<h2 className='mt-4 text-xl font-semibold dark:text-gray-200'>{title}</h2>

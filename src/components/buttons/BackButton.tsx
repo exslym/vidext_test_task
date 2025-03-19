@@ -8,6 +8,7 @@ export default function BackButton() {
 		<Button
 			className='gap-0 rounded-lg bg-gray-secondary px-3 py-2 shadow-sm hover:bg-gray-600 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-500 lg:px-4'
 			size='lg'
+			aria-label='Go back to home page'
 		>
 			<House size={16} />
 			<p className='ml-0 hidden lg:ml-2 lg:block'>Home</p>

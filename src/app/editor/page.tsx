@@ -52,6 +52,7 @@ export default function EditorPage() {
 				<Header classes='absolute top-0'>
 					<nav
 						aria-label='Editor navigation'
+						role='navigation'
 						className='mx-auto flex w-full items-center justify-between gap-2'
 					>
 						<div className='flex items-center gap-2'>
@@ -76,6 +77,10 @@ export default function EditorPage() {
 						<SaveButton projectName={projectName} />
 					</nav>
 				</Header>
+
+				<h1 id='editor-title' className='sr-only'>
+					Tldraw Editor - Online Sketching Tool
+				</h1>
 
 				<EditorContent />
 			</Tldraw>

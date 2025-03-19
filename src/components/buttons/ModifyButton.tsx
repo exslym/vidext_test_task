@@ -12,6 +12,7 @@ export default function ModifyButton() {
 			onClick={() => modifyShape(editor)}
 			className='w-max-fit relative rounded-lg bg-blue-primary px-4 py-2 text-center text-white shadow-sm transition hover:bg-blue-400'
 			size={'lg'}
+			aria-label='Modify selected elements'
 		>
 			Modify Shape
 		</Button>

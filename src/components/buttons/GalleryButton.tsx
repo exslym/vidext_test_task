@@ -8,6 +8,7 @@ export default function GalleryButton({ classes }: { classes?: string }) {
 		<Button
 			className={`gap-0 rounded-lg bg-gray-secondary px-3 py-2 shadow-sm hover:bg-gray-600 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-500 lg:px-4 ${classes}`}
 			size='lg'
+			aria-label='Go to gallery page'
 		>
 			<GalleryThumbnails size={16} />
 			<p className='ml-0 hidden lg:ml-2 lg:block'>Gallery</p>

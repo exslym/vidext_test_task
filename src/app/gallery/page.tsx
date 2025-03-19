@@ -23,7 +23,11 @@ export default function GalleryPage() {
 					</Link>
 				</nav>
 			</Header>
-			<main className='flex flex-1 items-start justify-center bg-white px-4 dark:bg-dark-secondary dark:text-white'>
+			<main
+				className='flex flex-1 items-start justify-center bg-white px-4 dark:bg-dark-secondary dark:text-white'
+				role='main'
+				aria-labelledby='gallery-heading'
+			>
 				<GalleryContent />
 			</main>
 		</div>

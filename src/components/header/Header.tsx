@@ -16,6 +16,7 @@ export default function Header({
 				'relative z-10 flex w-full bg-gray-primary p-2 shadow-inset-bottom-lightgray dark:bg-dark-primary dark:shadow-inset-bottom-black',
 				classes
 			)}
+			aria-label='Site navigation'
 		>
 			{children}
 		</header>

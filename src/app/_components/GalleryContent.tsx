@@ -30,14 +30,25 @@ export default function GalleryContent() {
 					No saved projects yet.
 				</h1>
 			) : (
-				<div className='flex w-full flex-col items-center justify-start gap-8'>
-					<h1 className='text-5xl font-bold dark:text-gray-200'>
+				<div
+					className='flex w-full flex-col items-center justify-start gap-8'
+					aria-labelledby='gallery-heading'
+					role='region'
+				>
+					<h1
+						id='gallery-heading'
+						className='text-5xl font-bold dark:text-gray-200'
+					>
 						Saved Projects
 					</h1>
 
-					<Selector onSortChange={setSortType} />
+					<Selector onSortChange={setSortType} aria-label='Sort projects' />
 
-					<div className='grid w-full grid-cols-auto-fit-238 justify-center gap-6'>
+					<div
+						role='list'
+						aria-label='Project list'
+						className='grid w-full grid-cols-auto-fit-238 justify-center gap-6'
+					>
 						{sortedProjects.map(([name, data]) => (
 							<ProjectCard
 								key={name}
