@@ -1,6 +1,7 @@
 'use client';
 
 import { features } from '@/constants/features';
+import Link from 'next/link';
 import GalleryButton from '@/components/buttons/GalleryButton';
 import NewProjectButton from '@/components/buttons/NewProjectButton';
 import FeatureCard from '@/components/cards/FeatureCard';
@@ -29,8 +30,13 @@ export default function Hero() {
 			</div>
 
 			<div className='flex gap-2'>
-				<GalleryButton classes={'hero-gallery-button'} />
-				<NewProjectButton classes={'hero-editor-button'} />
+				<Link href='/gallery' className='max-w-fit'>
+					<GalleryButton classes={'hero-gallery-button'} />
+				</Link>
+
+				<Link href='/editor' className='max-w-fit'>
+					<NewProjectButton classes={'hero-editor-button'} />
+				</Link>
 			</div>
 		</section>
 	);

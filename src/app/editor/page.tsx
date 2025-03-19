@@ -52,14 +52,14 @@ export default function EditorPage() {
 				<Header classes='absolute top-0'>
 					<nav
 						aria-label='Editor navigation'
-						className='mx-auto flex w-full items-center justify-between'
+						className='mx-auto flex w-full items-center justify-between gap-2'
 					>
 						<div className='flex items-center gap-2'>
-							<Link href='/' className='z-10 max-w-fit'>
+							<Link href='/' className='max-w-fit'>
 								<BackButton />
 							</Link>
 
-							<Link href='/gallery' className='z-10 max-w-fit'>
+							<Link href='/gallery' className='max-w-fit'>
 								<GalleryButton />
 							</Link>
 

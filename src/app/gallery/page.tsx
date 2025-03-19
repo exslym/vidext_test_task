@@ -14,11 +14,11 @@ export default function GalleryPage() {
 					aria-label='Gallery navigation'
 					className='container mx-auto flex items-center justify-between'
 				>
-					<Link href='/' className='z-10 max-w-fit'>
+					<Link href='/' className='max-w-fit'>
 						<BackButton />
 					</Link>
 
-					<Link href='/editor' className='z-10 max-w-fit'>
+					<Link href='/editor' className='max-w-fit'>
 						<NewProjectButton />
 					</Link>
 				</nav>

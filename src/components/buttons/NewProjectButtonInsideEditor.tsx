@@ -1,9 +1,8 @@
 'use client';
 
-import { useEditor } from '@tldraw/tldraw';
 import { Pencil } from 'lucide-react';
-import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
+import { useNewProject } from '@/hooks/useNewProject';
 
 type NewProjectButtonInsideEditorProps = {
 	onResetProjectName: () => void;
@@ -12,22 +11,7 @@ type NewProjectButtonInsideEditorProps = {
 export default function NewProjectButtonInsideEditor({
 	onResetProjectName,
 }: NewProjectButtonInsideEditorProps) {
-	const editor = useEditor();
-	const router = useRouter();
-
-	const handleNewProject = () => {
-		if (editor) {
-			const shapes = editor.getCurrentPageShapes();
-			editor.deleteShapes(shapes.map(shape => shape.id));
-			editor.zoomToFit();
-			editor.markHistoryStoppingPoint();
-		}
-
-		onResetProjectName();
-		setTimeout(onResetProjectName, 0);
-
-		router.replace('/editor');
-	};
+	const { handleNewProject } = useNewProject(onResetProjectName);
 
 	return (
 		<Button

@@ -19,11 +19,11 @@ export default function HomePage() {
 					</Link>
 
 					<div className='flex items-center gap-2'>
-						<Link href='/gallery' className='z-10 max-w-fit'>
+						<Link href='/gallery' className='max-w-fit'>
 							<GalleryButton />
 						</Link>
 
-						<Link href='/editor' className='z-10 max-w-fit'>
+						<Link href='/editor' className='max-w-fit'>
 							<NewProjectButton />
 						</Link>
 					</div>
