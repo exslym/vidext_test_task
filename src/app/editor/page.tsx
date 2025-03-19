@@ -46,7 +46,7 @@ export default function EditorPage() {
 	return (
 		<div
 			ref={tldrawContainerRef}
-			className='bg-light relative flex h-screen w-full dark:bg-dark-secondary'
+			className='bg-light relative flex h-dvh w-full dark:bg-dark-secondary'
 		>
 			<Tldraw inferDarkMode className={'pt-14'}>
 				<Header classes='absolute top-0'>
