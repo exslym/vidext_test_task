@@ -3,6 +3,7 @@ import { type ShapeType } from '@/constants/shapes';
 import { api } from '@/lib/api';
 
 export const useApiTest = () => {
+	// Store API responses and errors
 	const [dataResult, setDataResult] = useState<Record<string, unknown> | null>(
 		null
 	);
@@ -13,16 +14,19 @@ export const useApiTest = () => {
 	const [recognitionResult, setRecognitionResult] = useState('');
 	const [error, setError] = useState('');
 
+	// Define API queries and mutations using tRPC
 	const getDataQuery = api.getData.useQuery(undefined, { enabled: false });
 	const setDataMutation = api.setData.useMutation();
 	const deleteDataMutation = api.deleteData.useMutation();
 	const recognizeShapeTestMutation = api.recognizeShapeTest.useMutation();
 
+	// Fetch stored data from the API
 	const handleGetData = async () => {
 		const result = await getDataQuery.refetch();
 		setDataResult(result.data ?? null);
 	};
 
+	// Save sample projects to storage
 	const handleSetData = () => {
 		const projects = { sampleProject1: {}, sampleProject2: {} };
 		setDataMutation.mutate(projects, {
@@ -31,6 +35,7 @@ export const useApiTest = () => {
 		});
 	};
 
+	// Delete all stored data
 	const handleDeleteData = () => {
 		deleteDataMutation.mutate(undefined, {
 			onSuccess: () => {
@@ -43,6 +48,7 @@ export const useApiTest = () => {
 		});
 	};
 
+	// Test AI shape recognition with a default shape ('ellipse')
 	const handleRecognizeShapeTest = (shape: ShapeType = 'ellipse') => {
 		recognizeShapeTestMutation.mutate(
 			{ shape },

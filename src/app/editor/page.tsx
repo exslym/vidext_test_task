@@ -17,6 +17,7 @@ import Header from '@/components/header/Header';
 import Loading from '@/components/loading/Loading';
 import { api } from '@/lib/api';
 
+// Dynamically import Tldraw to avoid SSR issues
 const Tldraw = dynamic(async () => (await import('@tldraw/tldraw')).Tldraw, {
 	ssr: false,
 });
@@ -24,9 +25,12 @@ const Tldraw = dynamic(async () => (await import('@tldraw/tldraw')).Tldraw, {
 export default function EditorPage() {
 	const { isLoading, isError, error } =
 		api.getData.useQuery<TLEditorSnapshot>();
+
+	// Reference for the editor container
 	const tldrawContainerRef = useRef<HTMLDivElement>(null);
 	const [projectName, setProjectName] = useState<string | null>(null);
 
+	// Extract project name from URL parameters
 	useEffect(() => {
 		if (typeof window !== 'undefined') {
 			const params = new URLSearchParams(window.location.search);
@@ -35,6 +39,7 @@ export default function EditorPage() {
 		}
 	}, []);
 
+	// Reset project name when creating a new project
 	const resetProjectName = () => {
 		setProjectName(null);
 		setTimeout(() => setProjectName(''), 0);

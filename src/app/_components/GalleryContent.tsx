@@ -14,6 +14,7 @@ export default function GalleryContent() {
 		'lastEdited' | 'alphabeticalAsc' | 'alphabeticalDesc' | 'createdAt'
 	>('lastEdited');
 
+	// Load saved projects and their previews from localStorage
 	useEffect(() => {
 		const projects = getProjects();
 		const previews = getPreviews();
@@ -21,6 +22,7 @@ export default function GalleryContent() {
 		setPreviews(previews);
 	}, []);
 
+	// Sort projects based on the selected sorting type
 	const sortedProjects = sortProjects(projects, sortType);
 
 	return (

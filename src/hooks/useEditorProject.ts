@@ -9,19 +9,23 @@ export function useEditorProject() {
 	const editor = useEditor();
 	const [projectName, setProjectName] = useState<string | null>(null);
 
+	// Extracts project name from URL parameters
 	useEffect(() => {
 		const params = new URLSearchParams(window.location.search);
 		const project = params.get('project');
 		setProjectName(project ? decodeURIComponent(project) : null);
 	}, []);
 
+	// Mutation to save data via API
 	const mutation = api.setData.useMutation();
 
+	// Debounced function to prevent excessive API calls
 	const debouncedSave = useCallback(
 		debounce(snapshot => mutation.mutate(snapshot), 500),
 		[mutation]
 	);
 
+	// Debounced function to prevent excessive API calls
 	const loadData = useCallback(() => {
 		if (!editor) return;
 
@@ -33,6 +37,7 @@ export function useEditorProject() {
 					return;
 				}
 			}
+			// Clear all shapes if no project is loaded
 			const shapes = editor.getCurrentPageShapes();
 			editor.deleteShapes(shapes);
 		} catch (error) {
@@ -40,6 +45,7 @@ export function useEditorProject() {
 		}
 	}, [editor, projectName]);
 
+	// Saves the current editor state with debounce to prevent frequent API calls
 	const saveData = useCallback(() => {
 		if (!editor) return;
 
@@ -51,10 +57,12 @@ export function useEditorProject() {
 		}
 	}, [editor, debouncedSave]);
 
+	// Load project when the editor initializes
 	useEffect(() => {
 		if (editor) loadData();
 	}, [editor, loadData]);
 
+	// Listen for editor changes and trigger save
 	useEffect(() => {
 		if (!editor) return;
 

@@ -9,8 +9,10 @@ export function handleDelete(
 ) {
 	deleteProject(name);
 
+	// Retrieve the updated list of projects and previews
 	const updatedProjects = getProjects();
 	const updatedPreviews = getPreviews();
+	// Update state with the new data
 	setProjects(updatedProjects);
 	setPreviews(updatedPreviews);
 }
@@ -37,6 +39,7 @@ export function sortProjects(
 	});
 }
 
+// Formats a timestamp into a readable date string.
 export function formatDate(timestamp: number): string {
 	const date = new Date(timestamp || 0);
 	return isValid(date) ? format(date, 'MMM dd, yyyy HH:mm') : 'Unknown date';

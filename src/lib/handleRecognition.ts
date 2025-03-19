@@ -10,6 +10,7 @@ type RecognizeShapeMutation = UseMutationResult<
 	{ image: string }
 >;
 
+// Handles shape recognition using AI.
 export const handleRecognition = async (
 	editor: ReturnType<typeof useEditor>,
 	recognizeShapeMutation: RecognizeShapeMutation
@@ -19,23 +20,28 @@ export const handleRecognition = async (
 		return;
 	}
 
+	// Get selected shapes
 	const selectedShapes = editor.getSelectedShapes();
 	if (selectedShapes.length === 0) {
 		toast.error('No shape selected to recognize.');
 		return;
 	}
 
+	// Convert selected shapes to SVG string
 	const svgString = await editor.getSvgString(selectedShapes.map(s => s.id));
 	if (!svgString?.svg) {
 		toast.error('Could not generate SVG.');
 		return;
 	}
 
+	// Convert SVG to Base64 format
 	const svgBase64 = svgToBase64(svgString.svg);
 
 	try {
+		// Convert SVG to PNG Base64 for AI recognition
 		const pngBase64 = await renderSvgToCanvas(svgBase64);
 
+		// Send image to AI for recognition
 		const response = await recognizeShapeMutation.mutateAsync({
 			image: pngBase64,
 		});
@@ -46,12 +52,14 @@ export const handleRecognition = async (
 			return;
 		}
 
+		// Get the bounding box of the selected shape
 		const bounds = editor.getShapePageBounds(selectedShapes[0].id);
 		if (!bounds) {
 			toast.error('Could not get shape bounds.');
 			return;
 		}
 
+		// Replace the selected shape with the recognized one
 		editor.batch(() => {
 			editor.deleteShapes(selectedShapes.map(shape => shape.id));
 
