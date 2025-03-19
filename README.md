@@ -25,7 +25,7 @@ For the AI features is used free model **Qwen2.5 VL 72B Instruct (FREE)**.
 
 ### 🏠 Home Page
 
-![Home Screenshot](https://github.com/exslym/vidext_test_task/blob/main/public/home-page.png 'Home Page')
+![Home Screenshot](https://github.com/exslym/vidext_test_task/blob/main/public/home_page.png 'Home Page')
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -33,7 +33,7 @@ For the AI features is used free model **Qwen2.5 VL 72B Instruct (FREE)**.
 
 ### 🖌 Gallery Page
 
-![Gallery Screenshot](https://github.com/exslym/vidext_test_task/blob/main/public/gallery-page.png 'Gallery Page')
+![Gallery Screenshot](https://github.com/exslym/vidext_test_task/blob/main/public/gallery_page.png 'Gallery Page')
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -41,7 +41,7 @@ For the AI features is used free model **Qwen2.5 VL 72B Instruct (FREE)**.
 
 ### 🖌 Editor Page
 
-![Editor Screenshot](https://github.com/exslym/vidext_test_task/blob/main/public/editor-page.png 'Editor Page')
+![Editor Screenshot](https://github.com/exslym/vidext_test_task/blob/main/public/editor_page.png 'Editor Page')
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
