@@ -5,6 +5,8 @@
 An advanced, yet intuitive, shape editing tool built with modern web technologies. This application offers seamless drawing, shape modification, AI-powered shape recognition, and the ability to save projects to a gallery for future interaction and editing, providing a smooth and user-friendly experience.
 <br/>
 For the AI features is used free model **Qwen2.5 VL 72B Instruct (FREE)**.
+<br/>
+Authentication is not implemented, and draws data is stored in localStorage since this is a test project. However, a database can be integrated, and authentication can be configured if needed.
 
 <a href="https://tldraw-editor.vercel.app/" target="_blank" rel="noopener noreferrer">**Demo View on Vercel**</a>
 
